@@ -1,0 +1,776 @@
+<div className='row center'>
+          <div className='brand_container row center'>
+            <p brand_name> Pooman Tours & travels</p>
+          </div>
+          <div className='row'>
+            <img src={Admin} alt='logo' />
+            <div className='admin_header'>
+              <h2 className='admin_header'>Hi,Manish Choudhary</h2>
+              <p className=' admin_header admin_prof'>Professional</p>
+            </div>
+          </div>
+          <div className='row menu_style'>Menu</div>
+          <div className='row column' style={{ width: '100%' }}>
+            <div className='row' style={{ width: '80%' }}>
+              <LinkIcon />
+              <a href='/'>Link1</a>
+            </div>
+            <div className='row' style={{ width: '80%' }}>
+              <LinkIcon />
+              <a href='/'>Link1</a>
+            </div>
+            <div className='row' style={{ width: '80%' }}>
+              <LinkIcon />
+              <a href='/'>Link1</a>
+            </div>
+            <div className='row' style={{ width: '80%' }}>
+              <LinkIcon />
+              <a href='/'>Link1</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div>
+              <span>
+                <LinkIcon />
+              </span>
+              <span>Admin</span>
+            </div>
+            <Link to='/customer'>Create Customer</Link>
+            <div>
+              <ArrowBackIosIcon />
+            </div>
+          </div>
+          <div className='row link_item'>
+            <div>
+              <span>
+                <LinkIcon />
+              </span>
+              <span>Management</span>
+            </div>
+            <div>
+              <ArrowBackIosIcon />
+            </div>
+          </div>
+          <div className='row link_item'>
+            <div>
+              <span>
+                <LinkIcon />
+              </span>
+              <span>Management</span>
+            </div>
+            <div>
+              <ArrowBackIosIcon />
+            </div>
+          </div>
+
+
+
+          //Navbar dummy files //
+
+          {/* <div className='col-1'>
+          <IconButton aria-label='menu' onClick={() => setSidebarIsOpen(true)}>
+            <MenuIcon fontSize='large' style={{ color: 'white' }} />
+          </IconButton>
+        </div>
+        <div className='col-2'>
+          <Link className='brand' to='/'>
+            Poonam Transport
+          </Link>
+        </div> */}
+
+
+        {/* <div>
+              <Button
+                aria-controls='simple-menu'
+                aria-haspopup='true'
+                onClick={event => {
+                  setAnchorEl(event.currentTarget);
+                }}
+                className={classes.root}
+              >
+                Admin
+              </Button>
+              <Menu
+                id='simple-menu'
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={() => setAnchorEl(null)}
+                elevation={0}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                className={classes.root}
+
+              >
+                <MenuItem
+                  onClick={() => setAnchorEl(null)}
+                  className = {classes.root1}
+                >Add Entry</MenuItem>
+                <MenuItem onClick={() => setAnchorEl(null)}>
+                  Add Customer
+                </MenuItem>
+                <MenuItem onClick={() => setAnchorEl(null)}>
+                  Add Vehicle
+                </MenuItem>
+              </Menu>
+            </div> */}
+
+            {/* <div>
+              <Button
+                aria-controls='simple-menu'
+                aria-haspopup='true'
+                onClick={event => {
+                  setAnchorE2(event.currentTarget);
+                }}
+                className={classes.root}
+              >
+                Entries
+              </Button>
+              <Menu
+                id='simple-menu'
+                anchorEl={anchorE2}
+                keepMounted
+                open={Boolean(anchorE2)}
+                onClose={() => setAnchorE2(null)}
+                elevation={0}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                className={classes.root}
+              >
+                <MenuItem onClick={() => setAnchorE2(null)}>
+                  Show Entries
+                </MenuItem>
+                <MenuItem onClick={() => setAnchorE2(null)}>
+                  Show Customers
+                </MenuItem>
+                <MenuItem onClick={() => setAnchorE2(null)}>
+                  Show Vechiles
+                </MenuItem>
+              </Menu>
+            </div> */}
+
+            {/* <div>
+              <Button
+                aria-controls='simple-menu'
+                aria-haspopup='true'
+                onClick={event => {
+                  setAnchorE3(event.currentTarget);
+                }}
+                className={classes.root}
+              >
+                Entries
+              </Button>
+              <Menu
+                id='simple-menu'
+                anchorEl={anchorE3}
+                keepMounted
+                open={Boolean(anchorE3)}
+                onClose={() => setAnchorE3(null)}
+                elevation={0}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                className={classes.root}
+              >
+                <MenuItem onClick={() => setAnchorE3(null)}>Bill-1</MenuItem>
+                <MenuItem onClick={() => setAnchorE3(null)}>Bill-1</MenuItem>
+                <MenuItem onClick={() => setAnchorE3(null)}>Bill-1</MenuItem>
+              </Menu>
+            </div> */}
+
+            {/* <div>
+              <Button
+                aria-controls='simple-menu'
+                aria-haspopup='true'
+                onClick={event => {
+                  setAnchorE4(event.currentTarget);
+                }}
+                className={classes.root}
+              >
+                Provisional-Bill
+              </Button>
+              <Menu
+                id='simple-menu'
+                anchorEl={anchorE4}
+                keepMounted
+                open={Boolean(anchorE4)}
+                onClose={() => setAnchorE4(null)}
+                elevation={0}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                className={classes.root}
+              >
+                <MenuItem onClick={() => setAnchorE4(null)}>Bill-2</MenuItem>
+                <MenuItem onClick={() => setAnchorE4(null)}>Bill-2</MenuItem>
+                <MenuItem onClick={() => setAnchorE4(null)}>Bill-2</MenuItem>
+              </Menu>
+            </div> */}
+
+
+            /**/Admin Screen/**/
+
+            import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Link } from 'react-router-dom';
+
+import { getcustomerDetails, getvehicleDetails } from '../actions/adminActions';
+import {
+  bookingData,
+  deleteBookingData,
+  getBookings,
+} from '../actions/dataEntryActions';
+
+const AdminScreen = () => {
+  // const [modalVisible, setModalVisible] = useState(false);
+  const [id, setId] = useState('');
+  const [input, setInput] = useState('');
+  const [customerInput, setCustomerInput] = useState('');
+  const [number, setNumber] = useState('');
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [driver, setDriver] = useState('');
+  const [book, setBook] = useState('');
+  const [show, setShow] = useState('');
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
+
+  const dispatch = useDispatch();
+  const vehicleDetails = useSelector(state => state.vehicleDetails);
+  const { vehicles } = vehicleDetails;
+  const customerDetails = useSelector(state => state.customerDetails);
+  const { customers } = customerDetails;
+  const bookingDetails = useSelector(state => state.bookingDetails);
+  const { entries } = bookingDetails;
+  let today = new Date();
+  const date =
+    today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
+
+  useEffect(() => {
+    dispatch(getvehicleDetails());
+    dispatch(getcustomerDetails());
+    dispatch(getBookings());
+  }, [dispatch]);
+
+  // const openModal = entry => {
+  //   // setModalVisible(true);
+  //   setId(entry._id);
+  //   setName(entry.name);
+  //   // setInput(entry.);
+  //   // setCustomerInput(entry.);
+  //   setNumber(entry.number);
+  //   setLocation(entry.location);
+  //   setDriver(entry.driver);
+  //   setBook(entry.book);
+  //   setShow(entry.show);
+  //   // setStartDate(entry.startDate);
+  //   // setEndDate(entry.endDate);
+  // };
+
+  const handleClick = e => {
+    e.preventDefault();
+    setNumber(input);
+    setInput('');
+  };
+
+  const handleCustomerClick = e => {
+    e.preventDefault();
+    setName(customerInput);
+    setCustomerInput('');
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(
+      bookingData({
+        _id: id,
+        name,
+        number,
+        location,
+        show,
+        driver,
+        book,
+        date,
+        // startDate,
+        // endDate,
+      })
+    );
+  };
+  // const deleteHandler = entry => {
+  //   dispatch(deleteBookingData(entry._id));
+  // };
+  return (
+    <div className='row center'>
+      {/* <div>
+        <h3>Records</h3>
+        <button className='primary' onClick={() => openModal({})}>
+          Add Records
+        </button>
+      </div> */}
+      {/* {modalVisible && ( */}
+        <form className='form' onSubmit={handleSubmit}>
+          <div className='flex'>
+            <h1 style={{ color: '#000' }}>Enter Data</h1>
+            <p style={{ color: '#000' }}>{date}</p>
+          </div>
+          <div className='flex'>
+            <div>
+              <label>Vehicle Name</label>
+              <select
+                value={number}
+                onChange={e => {
+                  setNumber(e.target.value);
+                }}
+              >
+                <option>None</option>
+                {vehicles.map(vehicle => {
+                  return <option key={vehicle._id}>{vehicle.number}</option>;
+                })}
+                <option>Others</option>
+              </select>
+            </div>
+            <div>
+              <input
+                style={{ marginTop: '35px' }}
+                placeholder='Enter Number Manually'
+                type='text'
+                value={input}
+                onChange={e => {
+                  setInput(e.target.value);
+                }}
+                name='customerInput'
+              />
+            </div>
+            <div>
+              <button
+                style={{ marginTop: '35px' }}
+                onClick={handleClick}
+                className='primary'
+              >
+                Add
+              </button>
+            </div>
+          </div>
+          <div className='flex'>
+            <div>
+              <label>Customer Name</label>
+              <select
+                value={name}
+                onChange={e => {
+                  setName(e.target.value);
+                }}
+              >
+                <option>None</option>
+                {customers.map(customer => {
+                  return <option key={customer._id}>{customer.name}</option>;
+                })}
+                <option>Others</option>
+              </select>
+            </div>
+            <div>
+              <input
+                style={{ marginTop: '35px' }}
+                placeholder='Enter Name Manually'
+                type='text'
+                value={customerInput}
+                onChange={e => {
+                  setCustomerInput(e.target.value);
+                }}
+                name='input'
+              />
+            </div>
+            <div>
+              <button
+                style={{ marginTop: '35px' }}
+                onClick={handleCustomerClick}
+                className='primary'
+              >
+                Add
+              </button>
+            </div>
+          </div>
+          {/* <div className='flex'>
+            <div>
+              <label>Start Date</label>
+              <DatePicker
+                selected={startDate}
+                onChange={date => setStartDate(date)}
+              />
+            </div>
+            <div>
+              <label>End Date</label>
+              <DatePicker
+                selected={endDate}
+                onChange={date => setEndDate(date)}
+              />
+            </div>
+          </div> */}
+          <div>
+            <label>Enter Location</label>
+            <input
+              placeholder='Enter Route'
+              style={{ width: '80%' }}
+              type='text'
+              name='location'
+              value={location}
+              onChange={e => {
+                setLocation(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label>Driver Name</label>
+            <input
+              type='text'
+              name='driver'
+              style={{ width: '80%' }}
+              value={driver}
+              placeholder='Enter Driver Name'
+              onChange={e => {
+                setDriver(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label>Book By</label>
+            <input
+              type='text'
+              name='book'
+              style={{ width: '80%' }}
+              value={book}
+              placeholder='Enter Booking Person Name'
+              onChange={e => {
+                setBook(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label>Show Name</label>
+            <input
+              type='text'
+              name='show'
+              style={{ width: '80%' }}
+              value={show}
+              placeholder='Enter Show Name'
+              onChange={e => {
+                setShow(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <button className='primary' type='submit'>
+              {id ? 'Update Entry' : 'Create Entry'}
+            </button>
+          </div>
+          {/* <div>
+            <button
+              type='button'
+              onClick={() => setModalVisible(false)}
+              className='button secondary'
+            >
+              Back
+            </button>
+          </div> */}
+        </form>
+      {/* )} */}
+      {/* <div>
+        <table style={{ color: 'black' }}>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Number</th>
+              <th>Location</th>
+              <th>Driver</th>
+              <th>Date</th> 
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {console.log(entries)}
+            {entries.map(entry => (
+              <tr key={entry._id}>
+                <td>{entry.name}</td>
+                <td>{entry.number}</td>
+                <td>{entry.location}</td>
+                <td>{entry.show}</td>
+                 <td>{entry.date}</td>
+                <td>
+                  <button className='button' onClick={() => openModal(entry)}>
+                    Edit
+                  </button>
+                  <button
+                    className='button'
+                    onClick={() => deleteHandler(entry)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>*/}
+    </div> 
+  );
+};
+
+export default AdminScreen;
+
+
+/*AdminScreen*/
+
+const [id, setId] = useState('');
+  const [input, setInput] = useState('');
+  const [customerInput, setCustomerInput] = useState('');
+  const [number, setNumber] = useState('');
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [fuel, setFuel] = useState('');
+  const [driver, setDriver] = useState('');
+  const [book, setBook] = useState('');
+  const [show, setShow] = useState('');
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState(new Date());
+
+  const dispatch = useDispatch();
+  const vehicleDetails = useSelector(state => state.vehicleDetails);
+  const { vehicles } = vehicleDetails;
+  const companyDetails = useSelector(state => state.companyDetails);
+  const { companies } = companyDetails;
+  console.log(companies);
+  let today = new Date();
+  const date =
+    today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
+
+  useEffect(() => {
+    dispatch(getvehicleDetails());
+    dispatch(getCompanyDetails());
+    dispatch(getBookings());
+  }, [dispatch]);
+
+  const handleClick = e => {
+    e.preventDefault();
+    setNumber(input);
+    setInput('');
+  };
+
+  const handleCustomerClick = e => {
+    e.preventDefault();
+    setName(customerInput);
+    setCustomerInput('');
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(
+      bookingData({
+        _id: id,
+        name,
+        number,
+        location,
+        show,
+        driver,
+        book,
+        date,
+        // startDate,
+        // endDate,
+      })
+    );
+  };
+  return (
+    <div className='row center'>
+      <form className='form' onSubmit={handleSubmit}>
+        <div className='flex'>
+          <h1 style={{ color: '#000' }}>Enter Data</h1>
+          <p style={{ color: '#000' }}>{date}</p>
+        </div>
+        <div className='flex'>
+          <div>
+            <label>Vehicle Number</label>
+            <select
+              value={number}
+              onChange={e => {
+                setNumber(e.target.value);
+              }}
+            >
+              <option selected hidden default>Vehicle Number</option>
+              {vehicles.map(vehicle => {
+                return <option key={vehicle._id}>{vehicle.number}</option>;
+              })}
+              <option>Others</option>
+            </select>
+          </div>
+          <div>
+            <input
+              style={{ marginTop: '35px' }}
+              placeholder='Enter Vehicle Number Manually'
+              type='text'
+              value={input}
+              onChange={e => {
+                setInput(e.target.value);
+              }}
+              name='customerInput'
+            />
+          </div>
+          <div>
+            <button
+              style={{ marginTop: '35px' }}
+              onClick={handleClick}
+              className='primary'
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div className='flex'>
+          <div>
+            <label>Company Name</label>
+            <select
+              value={name}
+              onChange={e => {
+                setName(e.target.value);
+              }}
+            >
+              <option selected hidden default>Company Name</option>
+              {!companies?<option>No Company found</option>:companies.map(company => {
+                return <option key={company._id}>{company.name}</option>;
+              })}
+              <option>Others</option>
+            </select>
+          </div>
+          <div>
+            <input
+              style={{ marginTop: '35px' }}
+              placeholder='Enter Company Name Manually'
+              type='text'
+              value={customerInput}
+              onChange={e => {
+                setCustomerInput(e.target.value);
+              }}
+              name='input'
+            />
+          </div>
+          <div>
+            <button
+              style={{ marginTop: '35px' }}
+              onClick={handleCustomerClick}
+              className='primary'
+            >
+              Add
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label>Enter From-To</label>
+          <input
+            placeholder='Enter From-To'
+            style={{ width: '80%' }}
+            type='text'
+            name='location'
+            value={location}
+            onChange={e => {
+              setLocation(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Fuel Type</label>
+          <select
+              value={fuel}
+              onChange={e => {
+                setFuel(e.target.value);
+              }}
+            >
+              <option selected hidden default>Fuel</option>
+              <option >Petrol</option>
+              <option >Diesel</option>
+              
+            </select>
+        </div>
+        <div>
+          <label>Driver Name</label>
+          <input
+            type='text'
+            name='driver'
+            style={{ width: '80%' }}
+            value={driver}
+            placeholder='Enter Driver Name'
+            onChange={e => {
+              setDriver(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Book By</label>
+          <input
+            type='text'
+            name='book'
+            style={{ width: '80%' }}
+            value={book}
+            placeholder='Enter Booking Person Name'
+            onChange={e => {
+              setBook(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Show Name</label>
+          <input
+            type='text'
+            name='show'
+            style={{ width: '80%' }}
+            value={show}
+            placeholder='Enter Show Name'
+            onChange={e => {
+              setShow(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <button className='primary' type='submit'>
+            Create Entry
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+const entryId = props.match.params.id;
+  console.log(entryId);
+  const bookingDetail = useSelector(state => state.bookingDetail);
+  const { loading, error, entry } = bookingDetail;
+  console.log(entry);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBooking(entryId));
+  }, [dispatch,entryId]);
+  return <p>Hello world</p>

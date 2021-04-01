@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+html {
+  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root {
+  --dark-blue: #203040;
+  --white: #ffffff;
+  --black: #111111;
+  --orange: #ff8000;
+  --grey: #c0c0c0;
+  --light-white: #f8f8f8;
+  --greenAlert: #20a20a;
+  --redAlert: #a02020;
+}
+
+#root {
+  height: 100%;
+}
+*:focus {
+  outline: none;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+/* Layout */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu header header header '
+    'menu main main main '
+    'menu footer footer footer ';
+  grid-template-columns: 0.2fr 1fr;
+  /* grid-template-columns: repeat(auto-fill, minmax(1fr)); */
+  grid-template-rows: 4.5rem 1fr 4rem;
+  height: 100vh;
+  color: #ffffff;
+}
+.menu {
+  grid-area: menu;
+  background-color: #222d32;
+  height: 100%;
+  /* max-height: 100vh; */
+}
+header {
+  grid-area: header;
+  background-color: #3c8dbc;
+}
+.main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+  color: var(--black);
+  font-size: 1rem;
+}
+/* Common  */
+/* h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+} */
+a {
+  text-decoration: none;
+  /* color: var(--black); */
+}
+a:hover {
+  color: var(--orange);
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+li {
+  margin-top: 1rem;
+}
+button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem var(--grey) solid;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--grey);
+  cursor: pointer;
+}
+button:hover {
+  /* border: 0.1rem #404040 solid; */
+}
+button.primary {
+  background-color: var(--orange);
+}
+button.block {
+  width: 100%;
+}
+/* Header */
+header a {
+  color: var(--white);
+  padding: 1rem;
+}
+a.brand {
+  color: var(--white);
+  font-size: 3rem;
+  font-size: bold;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.row.space-between {
+  justify-content: space-between;
+}
+.row.center {
+  justify-content: center;
+}
+.row.column {
+  flex-direction: column;
+}
+
+/* Menu */
+.brand_container {
+  /* background-color: #357ca5; */
+  height: 4.5rem;
+  width: -webkit-fill-available;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+.brand_container p {
+  color: white;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brand_name {
+  font-size: 1.5rem;
+}
+#avatar {
+  width: 5rem;
+  height: 5rem;
+}
+.row.evenly {
+  justify-content: space-evenly;
+}
+.admin_header {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 5px 0 5px 0;
+}
+
+.admin_prof {
+  font-size: 1rem;
+}
+.menu_style {
+  background-color: #1a2226;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 0.2rem;
+  justify-content: flex-start;
+  padding-left: 0rem;
+  color: white;
+}
+/* 
+.link_container {
+  margin: 1rem;
+  width: 100%;
+  justify-content: 'space-between';
+  width: 100%;
+} */
+/* Alert */
+.success {
+  color: var(--greenAlert);
+}
+.danger {
+  color: var(--redAlert);
+}
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+.alert-info {
+  color: #2020a0;
+  background-color: #e0e0ff;
+}
+.alert-danger {
+  color: #a02020;
+  background-color: #ffe0e0;
+}
+/* Utilities */
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar */
+/* .brand {
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+} */
+/* Footer */
+/* .footer p {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+} */
+/* Forms */
+.form {
+  width: 80%;
+  height: auto;
+  border: 5px solid #e6e49f;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+.form label {
+  display: block;
+  padding: 5px 0;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+.form input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #e6e49f;
+  font-size: 15px;
+  color: #25291c;
+}
+.form input:focus {
+  border-bottom: 2px solid #25291c;
+}
+.form select {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #e6e49f;
+  font-size: 15px;
+  color: #25291c;
+}
+.row.start {
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form select:focus {
+  border-bottom: 2px solid #25291c;
+}
+.form textarea {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #e6e49f;
+  font-size: 15px;
+  color: #25291c;
+  width: 90%;
+}
+.form textarea:focus {
+  border-bottom: 2px solid #25291c;
+}
+
+.primary {
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%;
+  display: block;
+  background-color: transparent;
+  border: 2px solid #e6e49f;
+  border-radius: 5px;
+  color: #25291c;
+  font-size: 20px;
+}
+.primary:hover {
+  background-color: #e6e49f;
+  color: #25291c;
+  border: 2px solid #25291c;
+}
+.form .primary {
+  width: 100%;
+}
+/* Card */
+.card {
+  height: 10rem;
+  width: 20rem;
+  background-color: #00c0ef;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.cardHeader {
+  height: 80%;
+}
+.cardContent {
+  margin: 1rem;
+}
+.cardContent p {
+  margin-top: 1rem;
+}
+.cardFooter {
+  height: 20%;
+  background-color: #00add7;
+  text-align: center;
+  cursor: pointer;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.cardFooter a {
+  color: #b7f9ff;
+  font-size: 1rem;
+}
+
+.link_item {
+  width: 100%;
+  justify-content: space-between;
+  margin: 1rem 1.5rem 1rem 1rem;
+  height: 2rem;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+}
+.link_item span {
+  padding-left: 10px;
+}
+
+.link_container {
+  width: 100%;
+}
+.inputBox input[type='text'] {
+  width: 50%;
+  padding: 0.8rem 0.3rem;
+  margin: 2rem;
+  font-size: 2rem;
+  box-sizing: border-box;
+}
+
+#tableStyle {
+  font-size: 1rem;
+}

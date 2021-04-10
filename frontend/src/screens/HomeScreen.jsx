@@ -15,6 +15,7 @@ import EditVehicle from './EditVehicle';
 import EditCompany from './EditCompany';
 import RecordScreen from './RecordScreen';
 import EditRecordScreen from './EditAdminScreen';
+import BillScreen from './BillScreen';
 function HomeScreen() {
   return (
     <Router>
@@ -45,6 +46,7 @@ function HomeScreen() {
               path='/admin/edit-vehicle/:id'
               component={EditVehicle}
             />
+            <Route path='/admin/bill' component={BillScreen} />
           </Switch>
         </main>
         <Footer />

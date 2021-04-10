@@ -22,9 +22,11 @@ import {
 } from '@material-ui/icons';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import { DATA_DELETE_RESET } from '../constants/dataEntryConstants';
 import LoadingBox from '../components/LoadingBox';
+import { addToBill } from '../actions/billActions';
 
 const RecordScreen = props => {
   const tableIcons = {
@@ -79,6 +81,10 @@ const RecordScreen = props => {
       dispatch({ type: DATA_DELETE_RESET });
     }
   }, [dispatch, successDelete]);
+  const addBillHandler = (entry) => {
+    props.history.push('/admin/show-entries');
+    dispatch(addToBill(entry._id))
+  }
   const tableRef = createRef();
 
   return (
@@ -137,12 +143,20 @@ const RecordScreen = props => {
                   deleteHandler(rowData);
                 },
               },
+              {
+                icon: () => <AddIcon fontSize='large' />,
+                iconProps: {},
+                tooltip: 'Delete',
+                onClick: (event, rowData) => {
+                  addBillHandler(rowData);
+                },
+              },
             ]}
             options={{
               search: true,
               actionsColumnIndex: -1,
               headerStyle: {
-                fontSize: '1.5rem',
+                fontSize: '1.2rem',
                 fontWeight: 700,
               },
               actionsCellStyle: {

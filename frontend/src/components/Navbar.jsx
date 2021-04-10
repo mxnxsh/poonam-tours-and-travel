@@ -37,11 +37,6 @@ const Navbar = props => {
                   link: '/admin/vehicle',
                 },
               ]}
-              // options={{
-              //   '/admin/entry': 'Add Entry',
-              //   '/admin/customerr': 'Add Customer',
-              //   '/admin/vehicle': 'Add Vehicle',
-              // }}
               buttonTitle='Admin'
             />
           </li>
@@ -69,7 +64,7 @@ const Navbar = props => {
             />
           </li>
           <li>
-            <DropDown
+            {/* <DropDown
               options={[
                 {
                   id: 1,
@@ -89,7 +84,8 @@ const Navbar = props => {
               ]}
               // options={['Bill-1', 'Bill-2', 'Bill-3']}
               buttonTitle='Bills'
-            />
+            /> */}
+            <Link to='bill'>Bills</Link>
           </li>
           <li>
             <DropDown

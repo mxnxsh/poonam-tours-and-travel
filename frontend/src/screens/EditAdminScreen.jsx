@@ -19,6 +19,8 @@ const EditAdminScreen = props => {
   const [driver, setDriver] = useState('');
   const [show, setShow] = useState('');
   const [book, setBook] = useState('');
+  const [extraHRS, setExtraHRS] = useState(0);
+  const [extraKMS, setExtraKMS] = useState(0);
   const [startDate, setStartDate] = useState('');
   const [input, setInput] = useState('');
   const [customerInput, setCustomerInput] = useState('');
@@ -60,6 +62,8 @@ const EditAdminScreen = props => {
       setDriver(entry.driver);
       setShow(entry.show);
       setBook(entry.book);
+      setExtraKMS(entry.extraKMS);
+      setExtraHRS(entry.extraHRS);
       setStartDate(entry.startDate);
     }
   }, [dispatch, entryId, entry, props.history, successUpdate]);
@@ -90,6 +94,8 @@ const EditAdminScreen = props => {
         driver,
         show,
         book,
+        extraKMS,
+        extraHRS,
         startDate,
       })
     );
@@ -310,6 +316,32 @@ const EditAdminScreen = props => {
                 placeholder='Enter Show Name'
                 onChange={e => {
                   setShow(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label>Extra KMS</label>
+              <input
+                type='number'
+                name='extraKMS'
+                style={{ width: '80%' }}
+                value={extraKMS}
+                placeholder='Extra KMS'
+                onChange={e => {
+                  setExtraKMS(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label>Extra HRS</label>
+              <input
+                type='number'
+                name='extraHRS'
+                style={{ width: '80%' }}
+                value={extraHRS}
+                placeholder='Extra HRS'
+                onChange={e => {
+                  setExtraHRS(e.target.value);
                 }}
               />
             </div>

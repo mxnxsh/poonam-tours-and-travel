@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
 import { getCompanyDetails, getvehicleDetails } from '../actions/adminActions';
 import { bookingData, getBookings } from '../actions/dataEntryActions';
@@ -14,18 +12,20 @@ const AdminScreen = () => {
   const [location, setLocation] = useState('');
   const [fuel, setFuel] = useState('');
   const [vehicleType, setVehicleType] = useState('');
-  const [basePrice, setBasePrice] = useState('');
+  const [basePrice, setBasePrice] = useState(3500);
   const [driver, setDriver] = useState('');
   const [show, setShow] = useState('');
   const [book, setBook] = useState('');
+  const [extraHRS, setExtraHRS] = useState(0);
+  const [extraKMS, setExtraKMS] = useState(0);
   const [startDate, setStartDate] = useState(
-    new Date().getMonth() +
-      1 +
+    new Date().getDate() +
       '/' +
-      new Date().getDate() +
+      (new Date().getMonth() + 1) +
       '/' +
       new Date().getFullYear()
   );
+
   const [input, setInput] = useState('');
   const [customerInput, setCustomerInput] = useState('');
   // const [startDate, setStartDate] = useState(new Date());
@@ -33,7 +33,6 @@ const AdminScreen = () => {
   const dispatch = useDispatch();
   const vehicleDetails = useSelector(state => state.vehicleDetails);
   const { vehicles } = vehicleDetails;
-
   const companyDetails = useSelector(state => state.companyDetails);
   const { companies } = companyDetails;
 
@@ -69,6 +68,8 @@ const AdminScreen = () => {
         show,
         book,
         startDate,
+        extraHRS,
+        extraKMS,
         // startDate,
         // endDate,
       })
@@ -293,6 +294,32 @@ const AdminScreen = () => {
             placeholder='Enter Show Name'
             onChange={e => {
               setShow(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Extra KMS</label>
+          <input
+            type='number'
+            name='extraKMS'
+            style={{ width: '80%' }}
+            value={extraKMS}
+            placeholder='Extra KMS'
+            onChange={e => {
+              setExtraKMS(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label>Extra HRS</label>
+          <input
+            type='number'
+            name='extraHRS'
+            style={{ width: '80%' }}
+            value={extraHRS}
+            placeholder='Extra HRS'
+            onChange={e => {
+              setExtraHRS(e.target.value);
             }}
           />
         </div>

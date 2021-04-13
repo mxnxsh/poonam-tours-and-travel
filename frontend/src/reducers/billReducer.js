@@ -1,4 +1,4 @@
-import { ADD_BILL, REMOVE_BILL } from '../constants/billConstants'
+import { ADD_BILL, BILL_EMPTY, REMOVE_BILL } from '../constants/billConstants'
 
 export const billReducer = (state = { billItems: [] }, { type, payload }) => {
   switch (type) {
@@ -21,6 +21,11 @@ export const billReducer = (state = { billItems: [] }, { type, payload }) => {
       return {
         ...state,
         billItems: state.billItems.filter(x => x.entry !== payload)
+      }
+    case BILL_EMPTY:
+      return {
+        ...state,
+        billItems: []
       }
     default:
       return state;

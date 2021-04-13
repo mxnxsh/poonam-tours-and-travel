@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { billReducer } from './reducers/billReducer';
 
 import { companyDeleteReducer, companyDetailReducer, companyEntryReducer, companyReducer, companyUpdateReducer } from './reducers/companyReducer';
+import { billCreateReducer } from './reducers/createBillReducers';
 import { bookingDeleteReducer, bookingDetailReducer, bookingDetailsReducer, bookingEntryReducer, bookingUpdateReducer } from './reducers/dataEntryReducer';
 import { vehicleDeleteReducer, vehicleDetailReducer, vehicleEntryReducer, vehicleReducer, vehicleUpdateReducer } from './reducers/vehicleReducer';
 
@@ -35,7 +36,8 @@ const reducer = combineReducers({
     editEntry: bookingUpdateReducer,
     deleteEntry: bookingDeleteReducer,
 
-    bill: billReducer
+    bill: billReducer,
+    createBill: billCreateReducer,
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, initialState, composeEnhancer(applyMiddleware(thunk)));

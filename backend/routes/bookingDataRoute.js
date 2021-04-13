@@ -4,10 +4,24 @@ import Booking from '../models/bookingDataModel';
 
 const bookingDataRouter = express.Router();
 
+// Create a entry
+bookingDataRouter.post('/', async (req, res) => {
+    const newData = new Booking(req.body);
+    try {
+        const data = await newData.save();
+        res.status(200).send(data);
+    } catch (error) {
+        console.log(error);
+        res.status(404).send({ message: 'Error in Creating New Entry.' })
+    }
+});
+// Read all entries
 bookingDataRouter.get('/', async (req, res) => {
     const data = await Booking.find().sort({ date: -1 });
     res.send(data)
 });
+
+// Read a particular entries
 bookingDataRouter.get('/:id', async (req, res) => {
     try {
         const entry = await Booking.findById(req.params.id);
@@ -20,6 +34,7 @@ bookingDataRouter.get('/:id', async (req, res) => {
         })
     }
 });
+// Update the entry
 bookingDataRouter.put('/:id', async (req, res) => {
     // console.log(req.params.id);
     // console.log(req.body);
@@ -36,10 +51,12 @@ bookingDataRouter.put('/:id', async (req, res) => {
             entry.driver = req.body.driver;
             entry.show = req.body.show;
             entry.book = req.body.book;
+            entry.extraKMS = req.body.extraKMS;
+            entry.extraHRS = req.body.extraHRS;
             entry.startDate = req.body.startDate;
             const updatedEntry = await entry.save();
             // console.log(updatedEntry);
-            res.status(200).send({message:'Entry Updated',entry:updatedEntry})
+            res.status(200).send({ message: 'Entry Updated', entry: updatedEntry })
         }
     } catch (error) {
         console.log(error);
@@ -49,28 +66,19 @@ bookingDataRouter.put('/:id', async (req, res) => {
         })
     }
 });
-bookingDataRouter.get('/:id', async (req, res) => {
-    try {
-        const entry = await Booking.findById(req.params.id);
-        res.status(200).send(entry);
-    } catch (error) {
-        console.log(error);
-        res.status(404).send({
-            message: 'Entry not found',
-            error
-        })
-    }
-});
-bookingDataRouter.post('/', async (req, res) => {
-    const newData = new Booking(req.body);
-    try {
-        const data = await newData.save();
-        res.status(200).send(data);
-    } catch (error) {
-        console.log(error);
-        res.status(404).send({ message: 'Error in Creating New Entry.' })
-    }
-});
+// bookingDataRouter.get('/:id', async (req, res) => {
+//     try {
+//         const entry = await Booking.findById(req.params.id);
+//         res.status(200).send(entry);
+//     } catch (error) {
+//         console.log(error);
+//         res.status(404).send({
+//             message: 'Entry not found',
+//             error
+//         })
+//     }
+// });
+
 bookingDataRouter.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -82,32 +90,32 @@ bookingDataRouter.delete('/:id', async (req, res) => {
     }
 })
 
-bookingDataRouter.put('/:id', async (req, res) => {
-    const booking = await Booking.findById(req.params.id)
-    try {
-        if (booking) {
-            booking.name = req.body.name;
-            booking.number = req.body.number;
-            booking.location = req.body.location;
-            booking.driver = req.body.driver;
-            booking.show = req.body.show;
-            booking.book = req.body.book;
+// bookingDataRouter.put('/:id', async (req, res) => {
+//     const booking = await Booking.findById(req.params.id)
+//     try {
+//         if (booking) {
+//             booking.name = req.body.name;
+//             booking.number = req.body.number;
+//             booking.location = req.body.location;
+//             booking.driver = req.body.driver;
+//             booking.show = req.body.show;
+//             booking.book = req.body.book;
 
-            const updatedBooking = await Booking.save();
-            if (updatedBooking) {
-                return res.status(200).send(
-                    {
-                        message: 'Booking Updated',
-                        data: updatedBooking
-                    }
-                );
-            }
-        }
-    } catch (error) {
-        console.log(error);
-        res.status(500).send(
-            { message: ' Error in Updating.' });
-    }
-})
+//             const updatedBooking = await Booking.save();
+//             if (updatedBooking) {
+//                 return res.status(200).send(
+//                     {
+//                         message: 'Booking Updated',
+//                         data: updatedBooking
+//                     }
+//                 );
+//             }
+//         }
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send(
+//             { message: ' Error in Updating.' });
+//     }
+// })
 
 export default bookingDataRouter;

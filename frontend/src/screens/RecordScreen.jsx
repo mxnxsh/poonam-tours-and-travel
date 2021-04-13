@@ -81,10 +81,10 @@ const RecordScreen = props => {
       dispatch({ type: DATA_DELETE_RESET });
     }
   }, [dispatch, successDelete]);
-  const addBillHandler = (entry) => {
+  const addBillHandler = entry => {
     props.history.push('/admin/show-entries');
-    dispatch(addToBill(entry._id))
-  }
+    dispatch(addToBill(entry._id));
+  };
   const tableRef = createRef();
 
   return (
@@ -115,6 +115,8 @@ const RecordScreen = props => {
               { title: 'Driver', field: 'driver' },
               { title: 'Show', field: 'show' },
               { title: 'Booked-by', field: 'book' },
+              { title: 'Extra-HRS', field: 'extraHRS' },
+              { title: 'Extra-KMS', field: 'extraKMS' },
               { title: 'Date', field: 'startDate' },
             ]}
             data={entries}

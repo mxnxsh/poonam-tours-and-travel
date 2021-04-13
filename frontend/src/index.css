@@ -9,11 +9,9 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 #root {
   height: 100%;
-
 }
 
 /* Layout */
@@ -80,12 +78,12 @@ button {
   background-color: #f8f8f8;
   cursor: pointer;
 }
-input:hover,
+/* input:hover,
 select:hover,
 textarea:hover,
 button:hover {
-  /* border: 0.1rem #404040 solid; */
-}
+  border: 0.1rem #404040 solid;
+} */
 button.primary {
   background-color: #f0c040;
 }
@@ -105,8 +103,8 @@ a.brand {
   font-size: 2rem;
   font-weight: bold;
 }
-.container{
-  margin:2rem 3rem
+.container {
+  margin: 2rem 3rem;
 }
 .row {
   display: flex;
@@ -123,11 +121,11 @@ a.brand {
 .row.start {
   justify-content: flex-start;
 }
-.col-1 {
-  flex: 1 2 25rem;
-}
+/* .col-1 {
+  flex:  1 5rem;
+} */
 .col-2 {
-  flex: 2 1 10rem;
+  flex: 2 40rem;
 }
 /* .col-2 {
   flex: 2 1 50rem;
@@ -195,22 +193,21 @@ img.medium {
 img.large {
   width: 100%;
 }
-.right{
-  margin:0 2rem;
-  text-align:center;
-  color:#ffffff
-
+.right {
+  margin: 0 2rem;
+  text-align: center;
+  color: #ffffff;
 }
 
-.right li{
-  padding:0 1rem;
-  text-align:center
+.right li {
+  padding: 0 1rem;
+  text-align: center;
 }
-.right li a{
-  color:#ffffff
+.right li a {
+  color: #ffffff;
 }
-.right li a:hover{
-  color:#4194e7
+.right li a:hover {
+  color: #4194e7;
 }
 .flex {
   display: flex;
@@ -247,7 +244,7 @@ img.large {
   color: #25291c;
   margin: 0 1rem 0 0;
 }
-.form input.w-9{
+.form input.w-9 {
   width: 100%;
 }
 .form input:focus {
@@ -296,12 +293,12 @@ img.large {
   color: #25291c;
   border: 2px solid #25291c;
 }
-.form .primary {
-  /* width: 100%; */
-}
+/* .form .primary {
+  width: 100%;
+} */
 #tableStyle {
   font-size: 1rem;
 }
-#none{
-  border:none
+#none {
+  border: none;
 }

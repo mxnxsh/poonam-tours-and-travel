@@ -6,7 +6,7 @@ const bookingDataSchema = new mongoose.Schema({
     },
     ownerName: {
         type: String,
-        default:'Poonam-Travel'
+        default: 'Poonam-Travel'
     },
     number: {
         type: String,
@@ -36,6 +36,18 @@ const bookingDataSchema = new mongoose.Schema({
         type: String,
         default: Date.now
     },
+    extraKMS: {
+        type: Number,
+        default: 0
+    },
+    extraHRS: {
+        type: Number,
+        default: 0
+    },
+    extraRemark: [{
+        remark: String,
+        priceRemark: Number
+    }],
     date: {
         type: Date,
         default: Date.now

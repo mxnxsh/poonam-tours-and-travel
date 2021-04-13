@@ -12,6 +12,9 @@ export const addToBill = (entryId) => async (dispatch, getState) => {
       entry: data._id,
       basePrice: data.basePrice,
       book: data.book,
+      show: data.show,
+      extraKMS: data.extraKMS,
+      extraHRS: data.extraHRS,
       startDate: data.startDate
     },
   });

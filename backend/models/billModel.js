@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const billSchema = new mongoose.Schema({
-  billItems: [{
+  bills: [{
     name: {
       type: String,
       required: true
@@ -32,13 +32,23 @@ const billSchema = new mongoose.Schema({
     },
     extraKMS: {
       type: Number,
-      required: true
     },
     extraHRS: {
       type: Number,
-      required: true
     },
-  }]
+  }],
+  totalHRS: {
+    type: Number
+  },
+  totalKMS: {
+    type: Number
+  },
+  bPrice: {
+    type: Number
+  },
+  subTotal: {
+    type: Number
+  },
 
 })
 

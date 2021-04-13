@@ -5,10 +5,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon --watch backend --exec node --experimental-modules --es-module-specifier-resolution=node  backend/server.js",
-    "frontend": "cd frontend && npm start",
-    "start": "concurrently -n 'backend,frontend' -c 'blue,green' \"nodemon --watch backend --exec node --experimental-modules --es-module-specifier-resolution=node  backend/server.js\" \"npm run frontend\""
-
+    "start": "nodemon --watch backend --exec node --experimental-modules --es-module-specifier-resolution=node  backend/server.js"
   },
   "keywords": [],
   "author": "",

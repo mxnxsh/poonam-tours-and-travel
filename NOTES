@@ -774,3 +774,6 @@ const entryId = props.match.params.id;
     dispatch(getBooking(entryId));
   }, [dispatch,entryId]);
   return <p>Hello world</p>
+
+  "frontend": "cd frontend && npm start",
+    "start": "concurrently -n 'backend,frontend' -c 'blue,green' \"nodemon --watch backend --exec node --experimental-modules --es-module-specifier-resolution=node  backend/server.js\" \"npm run frontend\""

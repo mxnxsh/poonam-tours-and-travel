@@ -58,10 +58,30 @@ const BillScreen = props => {
   const bill = useSelector(state => state.bill);
   const { billItems } = bill;
 
+  const toPrice = num => Number(Math.round(num));
+  bill.totalKMS = toPrice(
+    billItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.extraKMS * 14,
+      0
+    )
+  );
+  bill.totalHRS = toPrice(
+    billItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.extraHRS * 100,
+      0
+    )
+  );
+  bill.bPrice = billItems.reduce(
+    (accumulator, currentValue) =>
+      parseInt(accumulator) + parseInt(currentValue.basePrice),
+    0
+  );
+  bill.subTotal = bill.totalHRS + bill.totalKMS + bill.bPrice;
+
   const dispatch = useDispatch();
 
   const billSaveHandler = () => {
-    dispatch(createBill({ ...bill }));
+    dispatch(createBill({ ...bill, bills: billItems }));
   };
   const removeBillHandler = id => {
     if (window.confirm('Are you sure to delete?')) {

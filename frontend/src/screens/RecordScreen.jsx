@@ -167,6 +167,7 @@ const RecordScreen = props => {
               draggable: false,
               exportButton: true,
               exportFileName: 'manish',
+              paging: false,
               // filtering: true,
             }}
           />

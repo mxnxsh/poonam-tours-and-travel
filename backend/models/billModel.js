@@ -50,6 +50,8 @@ const billSchema = new mongoose.Schema({
     type: Number
   },
 
+}, {
+  timestamps: true
 })
 
 const Bill = mongoose.model('Bill', billSchema);

@@ -82,6 +82,7 @@ const BillScreen = props => {
 
   const billSaveHandler = () => {
     dispatch(createBill({ ...bill, bills: billItems }));
+    props.history.push('/all-bills');
   };
   const removeBillHandler = id => {
     if (window.confirm('Are you sure to delete?')) {
@@ -161,7 +162,7 @@ const BillScreen = props => {
           )}
         </div>
       </div>
-      <div className='row center'>
+      <div className={`row center ${billItems.length === 0 ? 'hide' : ''}`}>
         <div className='card card-body'>
           <ul>
             <li>

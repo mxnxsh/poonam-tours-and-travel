@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
-import { IconButton } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-
+import { useSelector } from 'react-redux';
 import DropDown from './DropDown';
 
 const Navbar = props => {
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-
+  const bill = useSelector(state => state.bill);
+  const { billItems } = bill;
   return (
     <>
       <header className='row'>
@@ -85,7 +82,12 @@ const Navbar = props => {
               // options={['Bill-1', 'Bill-2', 'Bill-3']}
               buttonTitle='Bills'
             /> */}
-            <Link to='bill'>Bills</Link>
+            <Link to='/admin/bill'>
+              Create Bill{' '}
+              {billItems.length > 0 && (
+                <span className='badge'>{billItems.length}</span>
+              )}
+            </Link>
           </li>
           <li>
             <DropDown
@@ -110,37 +112,15 @@ const Navbar = props => {
               buttonTitle='Provisional-Bills'
             />
           </li>
+          <li>
+            <div>
+              <Link className='' to='/all-bills'>
+                All bill
+              </Link>
+            </div>
+          </li>
         </ul>
       </header>
-      <aside className={sidebarIsOpen ? 'open' : ''}>
-        <ul className='categories'>
-          <li>
-            <strong>Section Open</strong>
-            <IconButton onClick={() => setSidebarIsOpen(false)} type='button'>
-              <CloseIcon
-                fontSize='large'
-                style={{ color: 'black' }}
-                className='close-sidebar'
-              />
-            </IconButton>
-          </li>
-          <li>
-            <Link to='/admin' onClick={() => setSidebarIsOpen(false)}>
-              Admin
-            </Link>
-          </li>
-          <li>
-            <Link to='/hero' onClick={() => setSidebarIsOpen(false)}>
-              Entries
-            </Link>
-          </li>
-          <li>
-            <Link to='/hero' onClick={() => setSidebarIsOpen(false)}>
-              Bills
-            </Link>
-          </li>
-        </ul>
-      </aside>
     </>
   );
 };

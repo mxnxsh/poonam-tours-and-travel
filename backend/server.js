@@ -6,7 +6,7 @@ import './db/connect.js';
 import vehicleRouter from './routes/vehicleRoute.js';
 import companyRouter from './routes/companyRoute.js';
 import bookingDataRouter from './routes/bookingDataRoute.js';
-import createBillRouter from './routes/createBillRoute.js';
+import billRouter from './routes/billRoute.js';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use('/api/vehicle-data', vehicleRouter);
 app.use('/api/company-data', companyRouter);
 app.use('/api/booking-data', bookingDataRouter);
-app.use('/api/bill', createBillRouter);
+app.use('/api/bill', billRouter);
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello</h1>')

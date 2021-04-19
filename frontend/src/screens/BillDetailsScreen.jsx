@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+
 import { detailsBill } from '../actions/createBillActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import Bill from '../components/bill/Bill';
 
 const BillDetailsScreen = props => {
   const billId = props.match.params.id;
@@ -13,6 +16,16 @@ const BillDetailsScreen = props => {
   useEffect(() => {
     dispatch(detailsBill(billId));
   }, [dispatch, billId]);
+
+  const showDownloadLink = bill => (
+    <PDFDownloadLink document={<Bill bill={bill} />} fileName={bill._id}>
+      Download PDF
+    </PDFDownloadLink>
+    // <PDFViewer fileName={bill._id}>
+    //   <Bill bill={bill} />
+    // </PDFViewer>
+  );
+
   return loading ? (
     <LoadingBox />
   ) : error ? (
@@ -109,7 +122,7 @@ const BillDetailsScreen = props => {
                 </div>
               </li>
               <li>
-                <button>Print</button>
+                <button>{showDownloadLink(bill)}</button>
               </li>
             </ul>
           </div>

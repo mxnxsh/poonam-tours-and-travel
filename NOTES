@@ -777,3 +777,117 @@ const entryId = props.match.params.id;
 
   "frontend": "cd frontend && npm start",
     "start": "concurrently -n 'backend,frontend' -c 'blue,green' \"nodemon --watch backend --exec node --experimental-modules --es-module-specifier-resolution=node  backend/server.js\" \"npm run frontend\""
+
+
+
+    {/* <View style={styles.addressContainer2}>
+        <View style={styles.flex}>
+          <Text style={styles.address1} fixed>
+            M/S SINGRO MEDIA INNOVATIONS PRIVATE LIMITED
+          </Text>
+          <Text style={styles.address} fixed></Text> 
+          <Text style={styles.address2} fixed>
+            INVOICE NO - TE 461
+          </Text>
+        </View>
+        <View style={styles.flex}>
+          <Text style={styles.address1}>
+            B-915 SAMARTH AISHWARIYA APARTMENT, LOIN SOLE MARG
+          </Text>
+          <Text></Text>
+          <Text style={styles.address2}>DATE - 29/12/2020</Text>
+        </View>
+        <View style={styles.flex}>
+          <Text style={styles.address1}>
+            OPPOSITE HIGH LAND PARK OSHIWARA ANDHERI WEST MUM 400102
+          </Text>
+          <Text></Text>
+          <Text style={styles.address2}>PROJECT- GUILTY MINDS</Text>
+        </View>
+        <View style={styles.flex}>
+          <Text style={styles.address1}>GSTIN - 27AJMPK7850M1ZH</Text>
+          <Text style={styles.address1}></Text>
+          <Text style={styles.address2}>BOOK BY - NILESH SIR</Text>
+        </View>
+      </View> */}
+      <Table>
+        <TableHeader>
+          <TableCell>
+            {/* <Text style={styles.address1} fixed> */}
+            M/S SINGRO MEDIA INNOVATIONS PRIVATE LIMITED
+            {/* </Text> */}
+          </TableCell>
+          {/* <TableCell></TableCell> */}
+          <TableCell>
+            {/* <Text style={styles.address2} fixed> */}
+            INVOICE NO - TE 461
+            {/* </Text> */}
+          </TableCell>
+        </TableHeader>
+      </Table>
+      {/* <Table>
+        <TableHeader>
+          <TableCell>Title</TableCell>
+          <TableCell>Price</TableCell>
+          <TableCell>Quantity</TableCell>
+          <TableCell>Brand</TableCell>
+          <TableCell>Color</TableCell>
+        </TableHeader>
+      </Table> */}
+
+      {/* <Table data={bill.products}>
+        <TableBody>
+          <DataTableCell getContent={x => x.product.title} />
+          <DataTableCell getContent={x => `$${x.product.price}`} />
+          <DataTableCell getContent={x => x.count} />
+          <DataTableCell getContent={x => x.product.brand} />
+          <DataTableCell getContent={x => x.product.color} />
+        </TableBody>
+      </Table>
+
+      <Text style={styles.text}>
+        <Text>
+          Date: {'               '}
+          {new Date(bill.paymentIntent.created * 1000).toLocaleString()}
+        </Text>
+        {'\n'}
+        <Text>
+          bill Id: {'         '}
+          {bill.paymentIntent.id}
+        </Text>
+        {'\n'}
+        <Text>
+          bill Status: {'  '}
+          {bill.billStatus}
+        </Text>
+        {'\n'}
+        <Text>
+          Total Paid: {'       '}
+          {bill.paymentIntent.amount}
+        </Text>
+      </Text>
+
+      <Text style={styles.footer}> ~ Thank you for shopping with us ~ </Text> */}
+
+
+
+      address1: {
+    fontSize: 12,
+    marginBottom: -1,
+    textAlign: 'left',
+    color: 'black',
+    fontWeight: 'bold',
+    paddingVertical: 2,
+  },
+  address2: {
+    fontSize: 12,
+    // marginBottom: -1,
+    textAlign: 'right',
+    color: 'black',
+    fontWeight: 'bold',
+    paddingTop: 0,
+    marginTop: 0,
+
+    // paddingBottom: 20,
+    // paddingVertical: 2,
+  },

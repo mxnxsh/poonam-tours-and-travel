@@ -137,13 +137,13 @@ const getCompanyDetails = () => async (dispatch) => {
  * 
  * Post Company
  */
-const addCompany = ({ name, address, mobile, email }) => async (dispatch) => {
+const addCompany = ({ name, address, mobile, email, GSTNumber, panCard }) => async (dispatch) => {
     dispatch({
         type: COMPANY_ENTRY_REQUEST,
-        payload: { name, address, mobile, email }
+        payload: { name, address, mobile, email, GSTNumber, panCard }
     });
     try {
-        const { data } = await Axios.post('/api/company-data', { name, address, mobile, email });
+        const { data } = await Axios.post('/api/company-data', { name, address, mobile, email, GSTNumber, panCard });
         dispatch({
             type: COMPANY_ENTRY_SUCCESS,
             payload: data

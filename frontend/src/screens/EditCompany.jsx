@@ -10,6 +10,8 @@ const EditCompany = props => {
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
+  const [GSTNumber, setGSTNumber] = useState('');
+  const [panCard, setPanCard] = useState('');
 
   const dispatch = useDispatch();
 
@@ -35,6 +37,8 @@ const EditCompany = props => {
       setAddress(company.address);
       setEmail(company.email);
       setMobile(company.mobile);
+      setGSTNumber(company.GSTNumber);
+      setPanCard(company.panCard);
     }
   }, [dispatch, company, companyId, props.history, successUpdate]);
   const handleSubmit = e => {
@@ -46,6 +50,8 @@ const EditCompany = props => {
         address,
         email,
         mobile,
+        GSTNumber,
+        panCard,
       })
     );
   };
@@ -73,8 +79,9 @@ const EditCompany = props => {
                 name='name'
                 value={name}
                 placeholder='Enter Company Name'
+                style={{ width: '89%' }}
                 onChange={e => {
-                  setName(e.target.value);
+                  setName(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -84,9 +91,11 @@ const EditCompany = props => {
                 type='text'
                 name='address'
                 value={address}
+                cols='50'
+                rows='5'
                 placeholder='Enter Company Address'
                 onChange={e => {
-                  setAddress(e.target.value);
+                  setAddress(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -97,8 +106,35 @@ const EditCompany = props => {
                 name='mobile'
                 value={mobile}
                 placeholder='Enter Company Mobile Number'
+                style={{ width: '89%' }}
                 onChange={e => {
                   setMobile(e.target.value);
+                }}
+              />
+            </div>
+            <div className='row start'>
+              <label style={{ color: 'black' }}>GST Number</label>
+              <input
+                type='text'
+                name='GSTNumber'
+                value={GSTNumber}
+                placeholder='Enter GST Number'
+                style={{ width: '89%' }}
+                onChange={e => {
+                  setGSTNumber(e.target.value.toUpperCase());
+                }}
+              />
+            </div>
+            <div className='row start'>
+              <label style={{ color: 'black' }}>Pan Card Number</label>
+              <input
+                type='text'
+                name='panCard'
+                value={panCard}
+                placeholder='Enter Company Mobile Number'
+                style={{ width: '89%' }}
+                onChange={e => {
+                  setPanCard(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -109,6 +145,7 @@ const EditCompany = props => {
                 name='email'
                 value={email}
                 placeholder='Enter Company Email'
+                style={{ width: '89%' }}
                 onChange={e => {
                   setEmail(e.target.value);
                 }}

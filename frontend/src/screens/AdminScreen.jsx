@@ -10,7 +10,7 @@ const AdminScreen = () => {
   const [ownerName, setOwnerName] = useState();
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
-  const [fuel, setFuel] = useState('');
+  // const [fuel, setFuel] = useState('');
   const [vehicleType, setVehicleType] = useState('');
   const [basePrice, setBasePrice] = useState(3500);
   const [driver, setDriver] = useState('');
@@ -32,9 +32,13 @@ const AdminScreen = () => {
   // const [endDate, setEndDate] = useState(new Date());
   const dispatch = useDispatch();
   const vehicleDetails = useSelector(state => state.vehicleDetails);
-  const { vehicles } = vehicleDetails;
+  const {
+    vehicles,
+    loading: loadingVehicle,
+    error: errorVehicle,
+  } = vehicleDetails;
   const companyDetails = useSelector(state => state.companyDetails);
-  const { companies } = companyDetails;
+  const { companies, loading, error } = companyDetails;
 
   useEffect(() => {
     dispatch(getvehicleDetails());
@@ -61,7 +65,7 @@ const AdminScreen = () => {
         ownerName,
         number,
         location,
-        fuel,
+        // fuel,
         vehicleType,
         basePrice,
         driver,
@@ -78,7 +82,7 @@ const AdminScreen = () => {
     // setOwnerName('')
     setNumber('');
     setLocation('');
-    setFuel('');
+    // setFuel('');
     setVehicleType('');
     setBasePrice('');
     setDriver('');
@@ -100,7 +104,7 @@ const AdminScreen = () => {
           <h1 style={{ color: '#000' }}>Enter Data</h1>
           {/* <DatePicker
             dateFormat='yyyy/MM/dd'
-            selected={startDate}
+            ={startDate}
             onChange={date => setStartDate(date)}
             id='none'
           /> */}
@@ -121,11 +125,14 @@ const AdminScreen = () => {
                 setNumber(e.target.value);
               }}
             >
-              <option selected hidden defaultValue>
+              <option hidden defaultValue>
                 Vehicle Number
               </option>
-              {!vehicles ? (
-                <option>No Vehicle found</option>
+              <option disabled>Vehicles Number</option>
+              {loadingVehicle ? (
+                <option>Loading...</option>
+              ) : errorVehicle ? (
+                <option>{errorVehicle}</option>
               ) : (
                 vehicles.map(vehicle => {
                   return <option key={vehicle._id}>{vehicle.number}</option>;
@@ -171,11 +178,15 @@ const AdminScreen = () => {
                 setName(e.target.value);
               }}
             >
-              <option selected hidden defaultValue>
+              <option hidden defaultValue>
                 Company Name
               </option>
-              {!companies ? (
-                <option>No Company found</option>
+              <option disabled>Companies Name</option>
+
+              {loading ? (
+                <option>Loading...</option>
+              ) : error ? (
+                <option>{error}</option>
               ) : (
                 companies.map(company => {
                   return <option key={company._id}>{company.name}</option>;
@@ -220,7 +231,7 @@ const AdminScreen = () => {
             }}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Fuel Type</label>
           <select
             value={fuel}
@@ -229,13 +240,13 @@ const AdminScreen = () => {
             }}
             style={{ width: '84%' }}
           >
-            <option selected hidden default>
+            <option hidden default>
               Fuel
             </option>
             <option>Petrol</option>
             <option>Diesel</option>
           </select>
-        </div>
+        </div> */}
         <div>
           <label>Driver Name</label>
           <input
@@ -262,7 +273,7 @@ const AdminScreen = () => {
             }}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Vehicle Type</label>
           <input
             type='text'
@@ -272,6 +283,29 @@ const AdminScreen = () => {
             placeholder='Vehicle Type'
             onChange={e => setVehicleType(e.target.value)}
           />
+        </div> */}
+        <div>
+          <label>Vehicle Type</label>
+          <select
+            value={vehicleType}
+            onChange={e => {
+              setVehicleType(e.target.value);
+            }}
+            style={{ width: '84%' }}
+          >
+            <option hidden>Vehicle Type</option>
+            <option disabled>TEMPOS</option>
+            <option>PICKUP/TATA ACE</option>
+            <option>407 (14FT)</option>
+            <option>909 (17FT)</option>
+            <option>1109 (18FT)</option>
+            <option>1109 (19FT)</option>
+            <option>1109 (20FT)</option>
+            <option disabled>CARS</option>
+            <option>INNOVA</option>
+            <option>INNOVA CRYSTA</option>
+            <option>DZIRE/YARIS</option>
+          </select>
         </div>
         <div>
           <label>Base Price</label>

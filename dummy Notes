@@ -1,17 +1,4 @@
-import React from 'react';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  DataTableCell,
-} from '@david.kucsai/react-pdf-table';
-
-const Bill = ({ bill }) => (
-  <Document>
-    <Page style={styles.body}>
-      <Text style={styles.invoice} fixed>
+<Text style={styles.invoice} fixed>
         INVOICE
       </Text>
       <Text style={styles.header} fixed>
@@ -69,85 +56,16 @@ const Bill = ({ bill }) => (
           </Text>
         </View>
       </View>
-      <Table
-        style={{ margin: 10 }}
-        data={[
-          {
-            firstName: '1',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '2',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '3',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '5',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-        ]}
-      >
+      {/* <Table style={{ margin: 10 }}>
         <TableHeader textAlign={'center'}>
-          <TableCell weighting={0.1}>
-            <Text style={styles.text}>SR.NO</Text>
-          </TableCell>
-          <TableCell weighting={0.7}>
-            <Text style={styles.text}>DESCRIPTION</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>DAY/HR/KMS</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>RATE</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>AMOUNT</Text>
-          </TableCell>
+          <TableCell weighting={0.3}>SR.NO</TableCell>
+          <TableCell>DESCRIPTION</TableCell>
+          <TableCell>DAY/HR/KMS</TableCell>
+          <TableCell>RATE</TableCell>
+          <TableCell>AMOUNT</TableCell>
         </TableHeader>
-        <TableBody>
-          <DataTableCell
-            weighting={0.1}
-            // style={styles.text}
-            getContent={r => r.firstName}
-          />
-          <DataTableCell
-            weighting={0.7}
-            // style={styles.text}
-            getContent={r => r.lastName}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.dob.toLocaleString()}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.country}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.phoneNumber}
-          />
-        </TableBody>
-      </Table>
-      {/* <View style={styles.table}>
+      </Table> */}
+      <View style={styles.table}>
         <View style={[styles.row, styles.header1]}>
           <Text style={[styles.headerText, styles.cell]}>SR.NO</Text>
           <Text style={[styles.headerText, styles.cell]}>DESCRIPTION</Text>
@@ -155,7 +73,7 @@ const Bill = ({ bill }) => (
           <Text style={[styles.headerText, styles.cell]}>RATE</Text>
           <Text style={[styles.headerText, styles.cell]}>AMOUNT</Text>
         </View>
-      </View> */}
+      </View>
 
       {/* <Table data={bill.bills}>
         <TableBody>
@@ -167,20 +85,12 @@ const Bill = ({ bill }) => (
           <DataTableCell getContent={x => x.bill.basePrice} />
         </TableBody>
       </Table> */}
-    </Page>
-  </Document>
-);
 
-const styles = StyleSheet.create({
-  body: {
-    paddingTop: 35,
-    paddingBottom: 65,
-    paddingHorizontal: 35,
-  },
-  text: {
-    fontSize: 10,
-    textAlign: 'center',
-    padding: 5,
+
+      text: {
+    margin: 12,
+    fontSize: 14,
+    textAlign: 'justify',
   },
   addressContainer: {
     textAlign: 'center',
@@ -284,6 +194,72 @@ const styles = StyleSheet.create({
   IPadding: {
     paddingLeft: 40,
   },
-});
 
-export default Bill;
+
+
+
+  <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}>1</Text>
+          <Text style={[styles.headerText, styles.cell]}>
+            MH 010203 22/3/2021
+          </Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>3500</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra KMS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra HRS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra HRS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra HRS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra HRS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>Extra HRS</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>6</Text>
+          <Text style={[styles.headerText, styles.cell]}>120</Text>
+        </View>
+      </View>

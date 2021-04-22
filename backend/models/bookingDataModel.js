@@ -14,9 +14,9 @@ const bookingDataSchema = new mongoose.Schema({
     location: {
         type: String,
     },
-    fuel: {
-        type: String,
-    },
+    // fuel: {
+    //     type: String,
+    // },
     vehicleType: {
         type: String,
     },

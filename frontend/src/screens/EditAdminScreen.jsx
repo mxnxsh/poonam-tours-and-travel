@@ -13,7 +13,7 @@ const EditAdminScreen = props => {
   const [ownerName, setOwnerName] = useState();
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
-  const [fuel, setFuel] = useState('');
+  // const [fuel, setFuel] = useState('');
   const [vehicleType, setVehicleType] = useState('');
   const [basePrice, setBasePrice] = useState('');
   const [driver, setDriver] = useState('');
@@ -56,7 +56,7 @@ const EditAdminScreen = props => {
       setOwnerName(entry.ownerName);
       setNumber(entry.number);
       setLocation(entry.location);
-      setFuel(entry.fuel);
+      // setFuel(entry.fuel);
       setVehicleType(entry.vehicleType);
       setBasePrice(entry.basePrice);
       setDriver(entry.driver);
@@ -65,19 +65,20 @@ const EditAdminScreen = props => {
       setExtraKMS(entry.extraKMS);
       setExtraHRS(entry.extraHRS);
       setStartDate(entry.startDate);
+      setCustomerInput(entry.name);
     }
   }, [dispatch, entryId, entry, props.history, successUpdate]);
 
   const handleClick = e => {
     e.preventDefault();
     setNumber(input);
-    setInput('');
+    // setInput('');
   };
 
   const handleCustomerClick = e => {
     e.preventDefault();
     setName(customerInput);
-    setCustomerInput('');
+    // setCustomerInput('');
   };
   const handleSubmit = e => {
     e.preventDefault();
@@ -88,7 +89,7 @@ const EditAdminScreen = props => {
         ownerName,
         number,
         location,
-        fuel,
+        // fuel,
         vehicleType,
         basePrice,
         driver,
@@ -242,7 +243,7 @@ const EditAdminScreen = props => {
                 }}
               />
             </div>
-            <div>
+            {/* <div>
               <label>Fuel Type</label>
               <select
                 value={fuel}
@@ -257,7 +258,7 @@ const EditAdminScreen = props => {
                 <option>Petrol</option>
                 <option>Diesel</option>
               </select>
-            </div>
+            </div> */}
             <div>
               <label>Driver Name</label>
               <input

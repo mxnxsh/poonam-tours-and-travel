@@ -10,6 +10,12 @@ const companySchema = new mongoose.Schema({
     mobile: {
         type: Number,
     },
+    GSTNumber: {
+        type: String,
+    },
+    panCard: {
+        type: String,
+    },
     email: {
         type: String,
     },

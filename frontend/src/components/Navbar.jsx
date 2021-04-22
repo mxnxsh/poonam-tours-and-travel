@@ -89,9 +89,9 @@ const Navbar = props => {
               )}
             </Link>
           </li>
-          <li>
+          {/* <li>
             <DropDown
-              // options={['Bill-1', 'Bill-2', 'Bill-3']}
+              options={['Bill-1', 'Bill-2', 'Bill-3']}
               options={[
                 {
                   id: 1,
@@ -111,7 +111,7 @@ const Navbar = props => {
               ]}
               buttonTitle='Provisional-Bills'
             />
-          </li>
+          </li> */}
           <li>
             <div>
               <Link className='' to='/all-bills'>

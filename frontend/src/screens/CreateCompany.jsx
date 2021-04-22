@@ -8,15 +8,18 @@ const CreateCompany = () => {
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
+  const [GSTNumber, setGSTNumber] = useState('');
+  const [panCard, setPanCard] = useState('');
   const dispatch = useDispatch();
-
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addCompany({ name, address, mobile, email }));
+    dispatch(addCompany({ name, address, mobile, email, GSTNumber, panCard }));
     setName('');
     setAddress('');
     setEmail('');
     setMobile('');
+    setGSTNumber('');
+    setPanCard('');
   };
 
   const customerEntry = useSelector(state => state.customerEntry);
@@ -30,7 +33,6 @@ const CreateCompany = () => {
   useEffect(() => {
     if (successCustomer) {
       // alert(`${customerInfo.name} is successfully added`);
-      
     }
   }, [successCustomer, customerInfo]);
   return (
@@ -44,7 +46,7 @@ const CreateCompany = () => {
           <form className='form' onSubmit={handleSubmit}>
             <div>
               <h1 className='center' style={{ color: 'black' }}>
-              Company Entry
+                Company Entry
               </h1>
             </div>
             <div className='row start'>
@@ -54,8 +56,9 @@ const CreateCompany = () => {
                 name='name'
                 value={name}
                 placeholder='Enter Company Name'
+                style={{ width: '89%' }}
                 onChange={e => {
-                  setName(e.target.value);
+                  setName(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -65,9 +68,12 @@ const CreateCompany = () => {
                 type='text'
                 name='address'
                 value={address}
+                cols='50'
+                rows='5'
+                style={{ border: '1px solid black' }}
                 placeholder='Enter Company Address'
                 onChange={e => {
-                  setAddress(e.target.value);
+                  setAddress(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -78,8 +84,35 @@ const CreateCompany = () => {
                 name='mobile'
                 value={mobile}
                 placeholder='Enter Company Mobile Number'
+                style={{ width: '89%' }}
                 onChange={e => {
                   setMobile(e.target.value);
+                }}
+              />
+            </div>
+            <div className='row start'>
+              <label style={{ color: 'black' }}>GST Number</label>
+              <input
+                type='text'
+                name='GSTNumber'
+                value={GSTNumber}
+                placeholder='Enter GST Number'
+                style={{ width: '89%' }}
+                onChange={e => {
+                  setGSTNumber(e.target.value.toUpperCase());
+                }}
+              />
+            </div>
+            <div className='row start'>
+              <label style={{ color: 'black' }}>Pan Card Number</label>
+              <input
+                type='text'
+                name='panCard'
+                value={panCard}
+                placeholder='Enter PAN Card Number'
+                style={{ width: '89%' }}
+                onChange={e => {
+                  setPanCard(e.target.value.toUpperCase());
                 }}
               />
             </div>
@@ -90,6 +123,7 @@ const CreateCompany = () => {
                 name='email'
                 value={email}
                 placeholder='Enter Company Email'
+                style={{ width: '89%' }}
                 onChange={e => {
                   setEmail(e.target.value);
                 }}
@@ -97,7 +131,7 @@ const CreateCompany = () => {
             </div>
             <div>
               <button className='primary' type='submit'>
-                Submit 
+                Submit
               </button>
             </div>
           </form>

@@ -4,13 +4,13 @@ import Company from '../models/companyModel';
 const companyRouter = express.Router();
 
 companyRouter.get('/', async (req, res) => {
-    const companies = await Company.find({}).sort({date:-1})
+    const companies = await Company.find({}).sort({ date: -1 })
     res.status(200).send(companies);
 });
 
 companyRouter.post('/', async (req, res) => {
-    const { name, address, mobile, email } = req.body;
-    const company = new Company({ name, address, mobile, email });
+    const { name, address, mobile, email, GSTNumber, panCard } = req.body;
+    const company = new Company({ name, address, mobile, email, GSTNumber, panCard });
     try {
         const newCompany = await company.save();
         res.status(200).json(newCompany);
@@ -56,12 +56,12 @@ companyRouter.delete('/:id', async (req, res) => {
             const deleteCompany = await company.remove();
             res.status(200).send({
                 message: 'Company Deleted Successfully',
-                data:deleteCompany
+                data: deleteCompany
             })
         }
     } catch (error) {
         res.status(404).send({
-            message:'Company Not found'
+            message: 'Company Not found'
         })
     }
 });

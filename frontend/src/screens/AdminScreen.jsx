@@ -7,7 +7,7 @@ import { bookingData, getBookings } from '../actions/dataEntryActions';
 const AdminScreen = () => {
   // const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
-  const [ownerName, setOwnerName] = useState();
+  // const [ownerName, setOwnerName] = useState();
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
   // const [fuel, setFuel] = useState('');
@@ -16,8 +16,8 @@ const AdminScreen = () => {
   const [driver, setDriver] = useState('');
   const [show, setShow] = useState('');
   const [book, setBook] = useState('');
-  const [extraHRS, setExtraHRS] = useState(0);
-  const [extraKMS, setExtraKMS] = useState(0);
+  const [extraHRS] = useState(0);
+  const [extraKMS] = useState(0);
   const [startDate, setStartDate] = useState(
     new Date().getDate() +
       '/' +
@@ -62,7 +62,7 @@ const AdminScreen = () => {
     dispatch(
       bookingData({
         name,
-        ownerName,
+        // ownerName,
         number,
         location,
         // fuel,
@@ -151,14 +151,14 @@ const AdminScreen = () => {
               name='customerInput'
             />
           </div>
-          <input
+          {/* <input
             style={{ marginTop: '35px' }}
             placeholder='Enter Owner Name'
             type='text'
             value={ownerName}
             onChange={e => setOwnerName(e.target.ownerName)}
             name='ownerName'
-          />
+          /> */}
           <div>
             <button
               style={{ marginTop: '35px' }}
@@ -331,7 +331,7 @@ const AdminScreen = () => {
             }}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Extra KMS</label>
           <input
             type='number'
@@ -356,7 +356,7 @@ const AdminScreen = () => {
               setExtraHRS(e.target.value);
             }}
           />
-        </div>
+        </div> */}
         <div>
           <button className='primary' type='submit'>
             Create Entry

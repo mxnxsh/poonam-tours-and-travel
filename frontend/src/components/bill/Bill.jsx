@@ -11,9 +11,9 @@ import {
 const Bill = ({ bill }) => (
   <Document>
     <Page style={styles.body}>
-      <Text style={styles.invoice} fixed>
+      {/* <Text style={styles.invoice} fixed>
         INVOICE
-      </Text>
+      </Text> */}
       <Text style={styles.header} fixed>
         POONAM TOURS & TRAVEL
       </Text>
@@ -25,148 +25,156 @@ const Bill = ({ bill }) => (
           MOB-9833700761 PAN NO-AIMPK7850M SAC NO: 9964 GSTIN 27AJMPK7850M1ZH
         </Text>
       </View>
-      <View style={styles.table}>
-        <View style={[styles.row, styles.header1]}>
-          <Text style={[styles.headerText, styles.cell]}>
-            M/S SINGRO MEDIA INNOVATIONS PRIVATE LIMITED
-          </Text>
-          <Text style={[styles.headerText, styles.cell]}></Text>
-          <Text style={[styles.headerText, styles.cell, styles.IPadding]}>
-            INVOICE NO - TE 461
-          </Text>
-        </View>
-      </View>
-      <View style={styles.table}>
-        <View style={[styles.row, styles.header1]}>
-          <Text style={[styles.headerText, styles.cell]}>
-            B-915 SAMARTH AISHWARIYA APARTMENT, LOIN SOLE MARG
-          </Text>
-          <Text style={[styles.headerText, styles.cell]}></Text>
-          <Text style={[styles.headerText, styles.cell, styles.DRight]}>
-            DATE - 29/12/2020
-          </Text>
-        </View>
-      </View>
-      <View style={styles.table}>
-        <View style={[styles.row, styles.header1]}>
-          <Text style={[styles.headerText, styles.cell]}>
-            OPPOSITE HIGH LAND PARK OSHIWARA ANDHERI WEST MUM 400102
-          </Text>
-          <Text style={[styles.headerText, styles.cell]}></Text>
-          <Text style={[styles.headerText, styles.cell]}>
-            PROJECT- GUILTY MINDS
-          </Text>
-        </View>
-      </View>
-      <View style={styles.table}>
-        <View style={[styles.row, styles.header1]}>
-          <Text style={[styles.headerText, styles.cell]}>
-            GSTIN - 27AJMPK7850M1ZH
-          </Text>
-          <Text style={[styles.headerText, styles.cell]}></Text>
-          <Text style={[styles.headerText, styles.cell, styles.bPadding]}>
-            BOOK BY - NILESH SIR
-          </Text>
-        </View>
-      </View>
-      <Table
-        style={{ margin: 10 }}
-        data={[
-          {
-            firstName: '1',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '2',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '3',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-          {
-            firstName: '5',
-            lastName: 'Smith',
-            dob: '12 / 3 / 21',
-            country: 'Australia',
-            phoneNumber: 'xxx-00-00',
-          },
-        ]}
+      <View
+        style={{
+          ...styles.flex,
+          fontSize: '11px',
+          margin: '10px 0',
+        }}
       >
-        <TableHeader textAlign={'center'}>
-          <TableCell weighting={0.1}>
-            <Text style={styles.text}>SR.NO</Text>
-          </TableCell>
-          <TableCell weighting={0.7}>
-            <Text style={styles.text}>DESCRIPTION</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>DAY/HR/KMS</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>RATE</Text>
-          </TableCell>
-          <TableCell weighting={0.2}>
-            <Text style={styles.text}>AMOUNT</Text>
-          </TableCell>
-        </TableHeader>
-        <TableBody>
-          <DataTableCell
-            weighting={0.1}
-            // style={styles.text}
-            getContent={r => r.firstName}
-          />
-          <DataTableCell
-            weighting={0.7}
-            // style={styles.text}
-            getContent={r => r.lastName}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.dob.toLocaleString()}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.country}
-          />
-          <DataTableCell
-            weighting={0.2}
-            // style={styles.text}
-            getContent={r => r.phoneNumber}
-          />
-        </TableBody>
-      </Table>
-      {/* <View style={styles.table}>
-        <View style={[styles.row, styles.header1]}>
-          <Text style={[styles.headerText, styles.cell]}>SR.NO</Text>
-          <Text style={[styles.headerText, styles.cell]}>DESCRIPTION</Text>
-          <Text style={[styles.headerText, styles.cell]}>DAY/HR/KMS</Text>
-          <Text style={[styles.headerText, styles.cell]}>RATE</Text>
-          <Text style={[styles.headerText, styles.cell]}>AMOUNT</Text>
+        <View
+          style={{
+            width: '60%',
+            lineHeight: 1.5,
+          }}
+        >
+          <Text>
+            349, ADARSH NAGAR, NEW LINK ROAD, JOGESHWARI (W) MUMBAI-400 102
+            MOB-9833700761 PAN NO-AIMPK7850M SAC NO: 9964
+          </Text>
+          <Text>GSTIN:- 27AJMPK7850M1ZH</Text>
         </View>
-      </View> */}
+        <View style={{ width: '10%', lineHeight: 1.5 }}></View>
+        <View style={{ width: '30%', lineHeight: 1.5 }}>
+          <Text style={{ fontSize: '11px', marginLeft: '10px' }}>
+            INVOICE NO:- TP 569
+          </Text>
+          <Text style={{ fontSize: '11px', marginLeft: '10px' }}>
+            DATE:- 20/12/2020
+          </Text>
+          <Text style={{ fontSize: '11px', marginLeft: '10px' }}>
+            SHOW BY:- GUILTY MIND
+          </Text>
+          <Text style={{ fontSize: '11px', marginLeft: '10px' }}>
+            BOOK BY:- MANISH SIR
+          </Text>
+        </View>
+      </View>
 
-      {/* <Table data={bill.bills}>
-        <TableBody>
-          {console.log(bill.bills)}
-          <DataTableCell getContent={x => x.bill.number} />
-          <DataTableCell getContent={x => x.bill.location} />
-          <DataTableCell getContent={x => x.bill.extraKMS} />
-          <DataTableCell getContent={x => x.bill.extraHRS} />
-          <DataTableCell getContent={x => x.bill.basePrice} />
-        </TableBody>
-      </Table> */}
+      <View style={{ ...styles.flex }}>
+        <View style={{ ...styles.flex, width: '60%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '9%',
+              textAlign: 'center',
+            }}
+          >
+            SR.NO
+          </Text>
+          <Text
+            style={{ ...styles.tableHeader, width: '80%', textAlign: 'center' }}
+          >
+            DESCRIPTION
+          </Text>
+        </View>
+        <View style={{ ...styles.flex, width: '40%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '30%',
+            }}
+          >
+            DAY/HR/KMS
+          </Text>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '35%',
+              textAlign: 'center',
+            }}
+          >
+            RATE
+          </Text>
+          <Text style={{ ...styles.tableHeader, width: '30%' }}>AMOUNT</Text>
+        </View>
+      </View>
+      <View style={{ ...styles.flex }}>
+        <View style={{ ...styles.flex, width: '60%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '9%',
+              textAlign: 'center',
+            }}
+          >
+            SR.NO
+          </Text>
+          <Text
+            style={{ ...styles.tableHeader, width: '80%', textAlign: 'center' }}
+          >
+            DESCRIPTION
+          </Text>
+        </View>
+        <View style={{ ...styles.flex, width: '40%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '30%',
+            }}
+          >
+            DAY/HR/KMS
+          </Text>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '35%',
+              textAlign: 'center',
+            }}
+          >
+            RATE
+          </Text>
+          <Text style={{ ...styles.tableHeader, width: '30%' }}>AMOUNT</Text>
+        </View>
+      </View>
+      <View style={{ ...styles.flex }}>
+        <View style={{ ...styles.flex, width: '60%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '9%',
+              textAlign: 'center',
+            }}
+          >
+            SR.NO
+          </Text>
+          <Text
+            style={{ ...styles.tableHeader, width: '80%', textAlign: 'center' }}
+          >
+            DESCRIPTION
+          </Text>
+        </View>
+        <View style={{ ...styles.flex, width: '40%' }}>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '30%',
+            }}
+          >
+            DAY/HR/KMS
+          </Text>
+          <Text
+            style={{
+              ...styles.tableHeader,
+              width: '35%',
+              textAlign: 'center',
+            }}
+          >
+            RATE
+          </Text>
+          <Text style={{ ...styles.tableHeader, width: '30%' }}>AMOUNT</Text>
+        </View>
+      </View>
     </Page>
   </Document>
 );
@@ -176,6 +184,7 @@ const styles = StyleSheet.create({
     paddingTop: 35,
     paddingBottom: 65,
     paddingHorizontal: 35,
+    border: '1px solid black',
   },
   text: {
     fontSize: 10,
@@ -184,12 +193,13 @@ const styles = StyleSheet.create({
   },
   addressContainer: {
     textAlign: 'center',
-    borderTop: ' 1px solid black',
-    borderRight: '1px solid black',
-    borderLeft: '1px solid black',
+    marginTop: 5,
+    // borderTop: ' 1px solid black',
+    // borderRight: '1px solid black',
+    // borderLeft: '1px solid black',
   },
   addressContainer2: {
-    border: '1px solid black',
+    // border: '1px solid black',
   },
   header: {
     fontSize: 25,
@@ -197,7 +207,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
-    border: '1px solid black',
+  },
+  flex: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  tableHeader: {
+    padding: 2,
+    fontSize: 11,
+    fontWeight: 'bold',
   },
   invoice: {
     fontSize: 18,
@@ -261,7 +279,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   header1: {
-    border: '1px solid black',
+    // border: '1px solid black',
     marginTop: -1,
   },
   headerText: {

@@ -263,3 +263,146 @@
           <Text style={[styles.headerText, styles.cell]}>120</Text>
         </View>
       </View>
+
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}>
+            M/S SINGRO MEDIA INNOVATIONS PRIVATE LIMITED
+          </Text>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell, styles.IPadding]}>
+            INVOICE NO - TE 461
+          </Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}>
+            B-915 SAMARTH AISHWARIYA APARTMENT, LOIN SOLE MARG
+          </Text>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell, styles.DRight]}>
+            DATE - 29/12/2020
+          </Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}>
+            OPPOSITE HIGH LAND PARK OSHIWARA ANDHERI WEST MUM 400102
+          </Text>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell]}>
+            PROJECT- GUILTY MINDS
+          </Text>
+        </View>
+      </View>
+      <View style={styles.table}>
+        <View style={[styles.row, styles.header1]}>
+          <Text style={[styles.headerText, styles.cell]}>
+            GSTIN - 27AJMPK7850M1ZH
+          </Text>
+          <Text style={[styles.headerText, styles.cell]}></Text>
+          <Text style={[styles.headerText, styles.cell, styles.bPadding]}>
+            BOOK BY - NILESH SIR
+          </Text>
+        </View>
+      </View>
+      
+
+
+      <View>
+        <View>
+          <View>
+            349, ADARSH NAGAR, NEW LINK ROAD, JOGESHWARI
+            {/* MOB-9833700761 PAN NO-AIMPK7850M SAC NO: 9964 GSTIN 27AJMPK7850M1ZH */}
+          </View>
+          <View>GSTIN 27AJMPK7850M1ZH</View>
+        </View>
+        <View>
+          <Text>INVOICE NO:- TE 461</Text>
+          <Text>DATE:- 02/2/2020</Text>
+          <Text>Project :- GUILTY MINDS</Text>
+          <Text>BOOK BY:- NILESH SIR</Text>
+        </View>
+      </View>
+
+
+      <Table
+        style={{ margin: 10 }}
+        data={[
+          {
+            firstName: '1',
+            lastName: 'Smith',
+            dob: '12 / 3 / 21',
+            country: 'Australia',
+            phoneNumber: 'xxx-00-00',
+          },
+          {
+            firstName: '2',
+            lastName: 'Smith',
+            dob: '12 / 3 / 21',
+            country: 'Australia',
+            phoneNumber: 'xxx-00-00',
+          },
+          {
+            firstName: '3',
+            lastName: 'Smith',
+            dob: '12 / 3 / 21',
+            country: 'Australia',
+            phoneNumber: 'xxx-00-00',
+          },
+          {
+            firstName: '5',
+            lastName: 'Smith',
+            dob: '12 / 3 / 21',
+            country: 'Australia',
+            phoneNumber: 'xxx-00-00',
+          },
+        ]}
+      >
+        <TableHeader textAlign={'center'}>
+          <TableCell weighting={0.1}>
+            <Text style={styles.text}>SR.NO</Text>
+          </TableCell>
+          <TableCell weighting={0.7}>
+            <Text style={styles.text}>DESCRIPTION</Text>
+          </TableCell>
+          <TableCell weighting={0.2}>
+            <Text style={styles.text}>DAY/HR/KMS</Text>
+          </TableCell>
+          <TableCell weighting={0.2}>
+            <Text style={styles.text}>RATE</Text>
+          </TableCell>
+          <TableCell weighting={0.2}>
+            <Text style={styles.text}>AMOUNT</Text>
+          </TableCell>
+        </TableHeader>
+        <TableBody>
+          <DataTableCell
+            weighting={0.1}
+            // style={styles.text}
+            getContent={r => r.firstName}
+          />
+          <DataTableCell
+            weighting={0.7}
+            // style={styles.text}
+            getContent={r => r.lastName}
+          />
+          <DataTableCell
+            weighting={0.2}
+            // style={styles.text}
+            getContent={r => r.dob.toLocaleString()}
+          />
+          <DataTableCell
+            weighting={0.2}
+            // style={styles.text}
+            getContent={r => r.country}
+          />
+          <DataTableCell
+            weighting={0.2}
+            // style={styles.text}
+            getContent={r => r.phoneNumber}
+          />
+        </TableBody>
+      </Table>

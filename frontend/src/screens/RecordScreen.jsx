@@ -100,27 +100,27 @@ const RecordScreen = props => {
           <MaterialTable
             icons={tableIcons}
             columns={[
+              { title: 'VEHICLE NUMBER', field: 'number' },
               {
-                title: 'Name',
+                title: 'COMPANY NAME',
                 field: 'name',
-                customFilterAndSearch: (term, rowData) =>
-                  term === rowData.name.length,
+                // customFilterAndSearch: (term, rowData) =>
+                //   term === rowData.name.length,
               },
-              { title: 'Owner-Name', field: 'ownerName' },
-              { title: 'Vehicle-Number', field: 'number' },
-              { title: 'To-and-From', field: 'location' },
-              { title: 'Fuel', field: 'fuel' },
-              { title: 'Vehicle-Type', field: 'vehicleType' },
-              { title: 'Base-Price', field: 'basePrice' },
-              { title: 'Driver', field: 'driver' },
-              { title: 'Show', field: 'show' },
-              { title: 'Booked-by', field: 'book' },
-              { title: 'Extra-HRS', field: 'extraHRS' },
-              { title: 'Extra-KMS', field: 'extraKMS' },
-              { title: 'Date', field: 'startDate' },
+              // { title: 'Owner-Name', field: 'ownerName' },
+              { title: 'FROM-TO', field: 'location' },
+              // { title: 'Fuel', field: 'fuel' },
+              { title: 'DRIVER', field: 'driver' },
+              { title: 'SHOW', field: 'show' },
+              // { title: 'Base-Price', field: 'basePrice' },
+              { title: 'BOOKED-BY', field: 'book' },
+              { title: 'VEHICLE-TYPE', field: 'vehicleType' },
+              // { title: 'Extra-HRS', field: 'extraHRS' },
+              // { title: 'Extra-KMS', field: 'extraKMS' },
+              // { title: 'Date', field: 'startDate' },
             ]}
             data={entries}
-            title='Entries'
+            title={new Date().toLocaleDateString()}
             actions={[
               {
                 icon: () => <EditIcon color='primary' fontSize='large' />,
@@ -162,7 +162,7 @@ const RecordScreen = props => {
                 fontWeight: 700,
               },
               actionsCellStyle: {
-                fontSize: '2rem',
+                fontSize: '3rem',
               },
               draggable: false,
               exportButton: true,

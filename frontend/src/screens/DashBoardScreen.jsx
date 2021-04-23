@@ -1,4 +1,3 @@
-import Menu from '../components/Menu';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from '../components/Footer';
@@ -12,8 +11,7 @@ const DashBoardScreen = props => {
   return (
     <div className='grid-container'>
       <Router>
-        <Menu />
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <Main /> */}
 
         <Switch>

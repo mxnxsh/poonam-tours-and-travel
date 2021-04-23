@@ -124,7 +124,7 @@ const EditAdminScreen = props => {
         <div className='row center'>
           <form className='form' onSubmit={handleSubmit}>
             <div className='flex'>
-              <h1 style={{ color: '#000' }}>Enter Data</h1>
+              <h1 style={{ color: '#000' }}>EDIT ENTRY</h1>
               <input
                 style={{ border: 'none', fontSize: '2rem' }}
                 type='text'
@@ -167,14 +167,14 @@ const EditAdminScreen = props => {
                   name='customerInput'
                 />
               </div>
-              <input
+              {/* <input
                 style={{ marginTop: '35px' }}
                 placeholder='Enter Owner Name'
                 type='text'
                 value={ownerName}
                 onChange={e => setOwnerName(e.target.ownerName)}
                 name='ownerName'
-              />
+              /> */}
               <div>
                 <button
                   style={{ marginTop: '35px' }}
@@ -287,14 +287,26 @@ const EditAdminScreen = props => {
             </div>
             <div>
               <label>Vehicle Type</label>
-              <input
-                type='text'
-                name='vehicleType'
-                style={{ width: '80%' }}
+              <select
                 value={vehicleType}
-                placeholder='Vehicle Type'
-                onChange={e => setVehicleType(e.target.value)}
-              />
+                onChange={e => {
+                  setVehicleType(e.target.value);
+                }}
+                style={{ width: '84%' }}
+              >
+                <option hidden>Vehicle Type</option>
+                <option disabled>TEMPOS</option>
+                <option>PICKUP/TATA ACE</option>
+                <option>407 (14FT)</option>
+                <option>909 (17FT)</option>
+                <option>1109 (18FT)</option>
+                <option>1109 (19FT)</option>
+                <option>1109 (20FT)</option>
+                <option disabled>CARS</option>
+                <option>INNOVA</option>
+                <option>INNOVA CRYSTA</option>
+                <option>DZIRE/YARIS</option>
+              </select>
             </div>
             <div>
               <label>Base Price</label>

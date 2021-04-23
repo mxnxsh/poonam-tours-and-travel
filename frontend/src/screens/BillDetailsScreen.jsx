@@ -18,12 +18,12 @@ const BillDetailsScreen = props => {
   }, [dispatch, billId]);
 
   const showDownloadLink = bill => (
-    <PDFDownloadLink document={<Bill bill={bill} />} fileName={bill._id}>
-      Download PDF
-    </PDFDownloadLink>
-    // <PDFViewer fileName={bill._id}>
-    //   <Bill bill={bill} />
-    // </PDFViewer>
+    // <PDFDownloadLink document={<Bill bill={bill} />} fileName={bill._id}>
+    //   Download PDF
+    // </PDFDownloadLink>
+    <PDFViewer fileName={bill._id}>
+      <Bill bill={bill} />
+    </PDFViewer>
   );
 
   return loading ? (
@@ -31,24 +31,25 @@ const BillDetailsScreen = props => {
   ) : error ? (
     <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
-    <div>
+    <div className='row center'>
       <h1>Bill {bill._id}</h1>
       <div className='row top'>
         <div className='col-2'>
           <div className='card card-body'>
             <ul>
               <li>
-                <h2>Bill Items</h2>
+                <div className='row'>
+                  <h2>Company Name: {bill.bills[0].name}</h2>
+                  <h2>Show Name: {bill.bills[0].show}</h2>
+                </div>
                 <ul>
                   <table className='table'>
                     <thead>
                       <tr>
-                        <th>NAME</th>
                         <th>NUMBER</th>
                         <th>LOCATION</th>
                         <th>BASE PRICE</th>
                         <th>BOOKED BY</th>
-                        <th>SHOW NAME</th>
                         {bill.extraKMS < 0 ? null : <th>EXTRA KMS</th>}
                         {bill.extraHRS < 0 ? null : <th>EXTRA HRS</th>}
                       </tr>
@@ -56,12 +57,10 @@ const BillDetailsScreen = props => {
                     <tbody>
                       {bill.bills.map(bill => (
                         <tr key={bill._id}>
-                          <td>{bill.name}</td>
                           <td>{bill.number}</td>
                           <td>{bill.location}</td>
                           <td>{bill.basePrice}</td>
                           <td>{bill.book}</td>
-                          <td>{bill.show}</td>
                           <td>
                             {bill.extraKMS <= 0
                               ? '-'

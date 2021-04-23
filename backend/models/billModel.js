@@ -37,6 +37,7 @@ const billSchema = new mongoose.Schema({
       type: Number,
     },
   }],
+
   totalHRS: {
     type: Number
   },

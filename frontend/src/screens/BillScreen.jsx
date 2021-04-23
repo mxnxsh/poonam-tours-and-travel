@@ -59,6 +59,7 @@ const BillScreen = props => {
   const { billItems } = bill;
 
   const toPrice = num => Number(Math.round(num));
+
   bill.totalKMS = toPrice(
     billItems.reduce(
       (accumulator, currentValue) => accumulator + currentValue.extraKMS * 14,

@@ -83,7 +83,7 @@ const Navbar = props => {
               buttonTitle='Bills'
             /> */}
             <Link to='/admin/bill'>
-              Create Bill{' '}
+              CREATE BILL{' '}
               {billItems.length > 0 && (
                 <span className='badge'>{billItems.length}</span>
               )}
@@ -115,7 +115,7 @@ const Navbar = props => {
           <li>
             <div>
               <Link className='' to='/all-bills'>
-                All bill
+                ALL BILLS
               </Link>
             </div>
           </li>

@@ -4,10 +4,10 @@ const bookingDataSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    ownerName: {
-        type: String,
-        default: 'Poonam-Travel'
-    },
+    // ownerName: {
+    //     type: String,
+    //     default: 'Poonam-Travel'
+    // },
     number: {
         type: String,
     },

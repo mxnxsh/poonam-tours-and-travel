@@ -25,6 +25,7 @@ function HomeScreen() {
         <Navbar />
         <main>
           <ToastContainer />
+
           <Switch>
             <Route exact path='/' component={Main} />
             <Route exact path='/admin/entry' component={AdminScreen} />

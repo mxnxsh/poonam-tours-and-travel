@@ -4,6 +4,7 @@ import Booking from '../models/bookingDataModel';
 
 const bookingDataRouter = express.Router();
 
+
 // Create a entry
 bookingDataRouter.post('/', async (req, res) => {
     const newData = new Booking(req.body);
@@ -17,7 +18,10 @@ bookingDataRouter.post('/', async (req, res) => {
 });
 // Read all entries
 bookingDataRouter.get('/', async (req, res) => {
-    const data = await Booking.find().sort({ date: -1 });
+    const name = req.query.name || '';
+    const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
+    const data = await Booking.find({ ...nameFilter }).sort({ date: -1 });
+    // console.log(data);
     res.send(data)
 });
 

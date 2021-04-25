@@ -83,7 +83,7 @@ const BillScreen = props => {
 
   const billSaveHandler = () => {
     dispatch(createBill({ ...bill, bills: billItems }));
-    props.history.push('/all-bills');
+    props.history.push('/admin/all-bills');
   };
   const removeBillHandler = id => {
     if (window.confirm('Are you sure to delete?')) {

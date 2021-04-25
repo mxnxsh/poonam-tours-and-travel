@@ -1,14 +1,30 @@
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import { DATA_DELETE_FAIL, DATA_DELETE_REQUEST, DATA_DELETE_SUCCESS, DATA_DETAILS_FAIL, DATA_DETAILS_REQUEST, DATA_DETAILS_SUCCESS, DATA_DETAIL_FAIL, DATA_DETAIL_REQUEST, DATA_DETAIL_SUCCESS, DATA_EDIT_FAIL, DATA_EDIT_REQUEST, DATA_EDIT_SUCCESS, DATA_ENTRY_FAIL, DATA_ENTRY_REQUEST, DATA_ENTRY_SUCCESS } from "../constants/dataEntryConstants"
+import {
+    DATA_DELETE_FAIL,
+    DATA_DELETE_REQUEST,
+    DATA_DELETE_SUCCESS,
+    DATA_DETAILS_FAIL,
+    DATA_DETAILS_REQUEST,
+    DATA_DETAILS_SUCCESS,
+    DATA_DETAIL_FAIL,
+    DATA_DETAIL_REQUEST,
+    DATA_DETAIL_SUCCESS,
+    DATA_EDIT_FAIL,
+    DATA_EDIT_REQUEST,
+    DATA_EDIT_SUCCESS,
+    DATA_ENTRY_FAIL,
+    DATA_ENTRY_REQUEST,
+    DATA_ENTRY_SUCCESS
+} from "../constants/dataEntryConstants"
 
 
-const getBookings = () => async (dispatch) => {
+const getBookings = ({ name = '' }) => async (dispatch) => {
     dispatch({
         type: DATA_DETAILS_REQUEST
     })
     try {
-        const { data } = await Axios.get('/api/booking-data');
+        const { data } = await Axios.get(`/api/booking-data?name=${name}`);
         dispatch({
             type: DATA_DETAILS_SUCCESS,
             payload: data

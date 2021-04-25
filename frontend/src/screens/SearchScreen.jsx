@@ -1,9 +1,8 @@
-import React, { useEffect, forwardRef, createRef } from 'react';
-// import { Link } from 'react-router-dom';
-import { useParams } from 'react-router';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteBookingData, getBookings } from '../actions/dataEntryActions';
+import React, { createRef, useEffect, forwardRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getBookings } from '../actions/dataEntryActions';
+import LoadingBox from '../components/LoadingBox';
 import MaterialTable from 'material-table';
 import {
   AddBox,
@@ -23,16 +22,9 @@ import {
   ViewColumn,
 } from '@material-ui/icons';
 import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import { DATA_DELETE_RESET } from '../constants/dataEntryConstants';
-import LoadingBox from '../components/LoadingBox';
-import { addToBill } from '../actions/billActions';
 
-const RecordScreen = props => {
-  const { name = 'all' } = useParams();
-
+const SearchScreen = props => {
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -60,45 +52,22 @@ const RecordScreen = props => {
     )),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
   };
-
-  const dispatch = useDispatch();
-
   const bookingDetails = useSelector(state => state.bookingDetails);
   const { loading, error, entries } = bookingDetails;
 
-  const deleteEntry = useSelector(state => state.deleteEntry);
-
-  const {
-    loading: loadingDelete,
-    error: errorDelete,
-    success: successDelete,
-  } = deleteEntry;
-
-  const deleteHandler = entry => {
-    if (window.confirm('Are you sure to delete?')) {
-      dispatch(deleteBookingData(entry._id));
-    }
-  };
+  const { name = 'all' } = useParams();
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
       getBookings({
         name: name !== 'all' ? name : '',
       })
     );
-    if (successDelete) {
-      dispatch({ type: DATA_DELETE_RESET });
-    }
-  }, [dispatch, successDelete]);
-  const addBillHandler = entry => {
-    props.history.push('/admin/show-entries');
-    dispatch(addToBill(entry._id));
-  };
+  }, [dispatch, name]);
   const tableRef = createRef();
 
   return (
     <>
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {errorDelete && <p>{errorDelete}</p>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -109,26 +78,11 @@ const RecordScreen = props => {
             icons={tableIcons}
             columns={[
               { title: 'VEHICLE NUMBER', field: 'number' },
-              {
-                title: 'COMPANY NAME',
-                field: 'name',
-                // customFilterAndSearch: (term, rowData) =>
-                //   term === rowData.name.length,
-              },
-              // { title: 'Owner-Name', field: 'ownerName' },
               { title: 'FROM-TO', field: 'location' },
-              // { title: 'Fuel', field: 'fuel' },
-              { title: 'DRIVER', field: 'driver' },
-              { title: 'SHOW', field: 'show' },
-              // { title: 'Base-Price', field: 'basePrice' },
-              { title: 'BOOKED-BY', field: 'book' },
-              { title: 'VEHICLE-TYPE', field: 'vehicleType' },
-              // { title: 'Extra-HRS', field: 'extraHRS' },
-              // { title: 'Extra-KMS', field: 'extraKMS' },
-              // { title: 'Date', field: 'startDate' },
+              { title: 'Date', field: 'startDate' },
             ]}
             data={entries}
-            title={new Date().toLocaleDateString()}
+            title='All Entries'
             actions={[
               {
                 icon: () => <EditIcon color='primary' fontSize='large' />,
@@ -144,22 +98,6 @@ const RecordScreen = props => {
                 isFreeAction: true,
                 onClick: () =>
                   tableRef.current && tableRef.current.onQueryChange(),
-              },
-              {
-                icon: () => <DeleteIcon color='secondary' fontSize='large' />,
-                iconProps: {},
-                tooltip: 'Delete',
-                onClick: (event, rowData) => {
-                  deleteHandler(rowData);
-                },
-              },
-              {
-                icon: () => <AddIcon fontSize='large' />,
-                iconProps: {},
-                tooltip: 'Delete',
-                onClick: (event, rowData) => {
-                  addBillHandler(rowData);
-                },
               },
             ]}
             options={{
@@ -185,4 +123,4 @@ const RecordScreen = props => {
   );
 };
 
-export default RecordScreen;
+export default SearchScreen;

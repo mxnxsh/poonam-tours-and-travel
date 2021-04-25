@@ -18,8 +18,11 @@ billRouter.post('/', async (req, res) => {
   }
 })
 billRouter.get('/all-bills', async (req, res) => {
+  const billName = req.query.billName || '';
+  const billNameFilter = billName ? { billName: { $regex: billName, $options: 'i' } } : {};
+
   try {
-    const data = await Bill.find().sort({ createdAt: -1 });
+    const data = await Bill.find({ ...billNameFilter }).sort({ createdAt: -1 });
     res.status(201).send(data);
   } catch (error) {
     console.log(error.message);

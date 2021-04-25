@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { getCompanyDetails, getvehicleDetails } from '../actions/adminActions';
 import { bookingData, getBookings } from '../actions/dataEntryActions';
 
 const AdminScreen = () => {
+  const { name = 'all' } = useParams();
+
   // const [modalVisible, setModalVisible] = useState(false);
-  const [name, setName] = useState('');
+  const [name1, setName1] = useState('');
   // const [ownerName, setOwnerName] = useState();
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
@@ -43,8 +46,12 @@ const AdminScreen = () => {
   useEffect(() => {
     dispatch(getvehicleDetails());
     dispatch(getCompanyDetails());
-    dispatch(getBookings());
-  }, [dispatch]);
+    dispatch(
+      getBookings({
+        name: name !== 'all' ? name : '',
+      })
+    );
+  }, [dispatch, name]);
 
   const handleClick = e => {
     e.preventDefault();
@@ -54,7 +61,7 @@ const AdminScreen = () => {
 
   const handleCustomerClick = e => {
     e.preventDefault();
-    setName(customerInput);
+    setName1(customerInput);
     setCustomerInput('');
   };
   const handleSubmit = e => {
@@ -78,7 +85,7 @@ const AdminScreen = () => {
         // endDate,
       })
     );
-    setName('');
+    setName1('');
     // setOwnerName('')
     setNumber('');
     setLocation('');
@@ -173,9 +180,9 @@ const AdminScreen = () => {
           <div>
             <label>Company Name</label>
             <select
-              value={name}
+              value={name1}
               onChange={e => {
-                setName(e.target.value);
+                setName1(e.target.value);
               }}
             >
               <option hidden defaultValue>

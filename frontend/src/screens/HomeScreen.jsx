@@ -18,6 +18,7 @@ import EditRecordScreen from './EditAdminScreen';
 import BillScreen from './BillScreen';
 import AllBillScreen from './AllBillScreen';
 import BillDetailsScreen from './BillDetailsScreen';
+import SearchScreen from './SearchScreen';
 function HomeScreen() {
   return (
     <Router>
@@ -27,7 +28,7 @@ function HomeScreen() {
           <ToastContainer />
 
           <Switch>
-            <Route exact path='/' component={Main} />
+            <Route exact path='/:name?' component={Main} />
             <Route exact path='/admin/entry' component={AdminScreen} />
             <Route exact path='/admin/show-entries' component={RecordScreen} />
             <Route
@@ -50,8 +51,16 @@ function HomeScreen() {
               component={EditVehicle}
             />
             <Route path='/admin/bill' component={BillScreen} />
-            <Route path='/all-bills' component={AllBillScreen} />
-            <Route path='/bill/:id' component={BillDetailsScreen} />
+            <Route path='/admin/all-bills' component={AllBillScreen} />
+            <Route
+              path='/admin/bill-detail/:id'
+              component={BillDetailsScreen}
+            />
+            <Route
+              path='/search/name/:name?'
+              component={SearchScreen}
+              exact
+            ></Route>{' '}
           </Switch>
         </main>
         <Footer />

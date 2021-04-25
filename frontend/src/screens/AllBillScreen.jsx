@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchAllBills } from '../actions/createBillActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 const AllBillScreen = props => {
+  const { billName = 'all' } = useParams;
   const allBills = useSelector(state => state.allBills);
   const { loading, error, bills } = allBills;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllBills());
-  }, [dispatch]);
+    dispatch(
+      fetchAllBills({
+        billName: billName !== 'all' ? billName : '',
+      })
+    );
+  }, [dispatch, billName]);
   return (
     <div>
       <h1>Bills History</h1>
@@ -43,14 +48,14 @@ const AllBillScreen = props => {
 
                 {/* <td>${bill.totalPrice.toFixed(2)}</td> */}
                 <td>Rs.{bill.subTotal}</td>
-                <td>Manish</td>
+                <td>{bill.bills[0].name}</td>
 
                 <td>
                   <button
                     type='button'
                     className='small'
                     onClick={() => {
-                      props.history.push(`/bill/${bill._id}`);
+                      props.history.push(`/admin/bill-detail/${bill._id}`);
                     }}
                   >
                     Details

@@ -114,7 +114,7 @@ const Navbar = props => {
           </li> */}
           <li>
             <div>
-              <Link className='' to='/all-bills'>
+              <Link className='' to='/admin/all-bills'>
                 ALL BILLS
               </Link>
             </div>

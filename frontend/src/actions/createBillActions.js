@@ -17,10 +17,10 @@ export const createBill = (bill) => async (dispatch) => {
   }
 }
 
-export const fetchAllBills = () => async (dispatch) => {
+export const fetchAllBills = ({ billName = '' }) => async (dispatch) => {
   dispatch({ type: ALL_BILL_REQUEST });
   try {
-    const { data } = await Axios.get('/api/bill/all-bills');
+    const { data } = await Axios.get(`/api/bill/all-bills?billName=${billName}`);
     dispatch({ type: ALL_BILL_SUCCESS, payload: data });
   } catch (error) {
     const message = error.response && error.response.data.message

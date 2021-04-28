@@ -323,7 +323,7 @@ img.large {
   margin-left: 0.4rem;
 }
 .bgimg {
-  background-image: url('./images/car.jpg');
+  background-image: url('./images/background_image.jpg');
   background-color: #cccccc;
   height: 600px;
   background-position: center;
@@ -337,11 +337,14 @@ img.large {
 }
 .div1,
 .div2 {
-  height: 300px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   width: 500px;
   margin: 20px;
-  background-color: white;
+  /* background-color: #fcecdd; */
+  padding: 30px;
 }
 .flex-center {
   display: flex;

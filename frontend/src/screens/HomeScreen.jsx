@@ -29,6 +29,7 @@ function HomeScreen() {
 
           <Switch>
             <Route exact path='/:name?' component={Main} />
+            {/* <Route exact path='/bi/:billName' component={Main} /> */}
             <Route exact path='/admin/entry' component={AdminScreen} />
             <Route exact path='/admin/show-entries' component={RecordScreen} />
             <Route

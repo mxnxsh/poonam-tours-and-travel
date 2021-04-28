@@ -406,3 +406,26 @@
           />
         </TableBody>
       </Table>
+
+      {/* <div className='card card-body'>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Vehicle Number</th>
+                          <th>From-To</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {entries.map(entry => (
+                          <tr key={entry._id}>
+                            <td>{entry.number}</td>
+
+                            <td>{entry.location}</td>
+
+                            <td>{entry.startDate}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div> */}

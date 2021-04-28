@@ -18,12 +18,12 @@ const BillDetailsScreen = props => {
   }, [dispatch, billId]);
 
   const showDownloadLink = bill => (
-    // <PDFDownloadLink document={<Bill bill={bill} />} fileName={bill._id}>
-    //   Download PDF
-    // </PDFDownloadLink>
-    <PDFViewer fileName={bill._id}>
-      <Bill bill={bill} />
-    </PDFViewer>
+    <PDFDownloadLink document={<Bill bill={bill} />} fileName={bill._id}>
+      Download PDF
+    </PDFDownloadLink>
+    // <PDFViewer fileName={bill._id}>
+    //   <Bill bill={bill} />
+    // </PDFViewer>
   );
 
   return loading ? (

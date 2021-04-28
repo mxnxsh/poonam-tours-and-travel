@@ -18,9 +18,15 @@ billRouter.post('/', async (req, res) => {
   }
 })
 billRouter.get('/all-bills', async (req, res) => {
+  console.log("Bill name", req.query.billName || '');
+  // console.log("Name======", req.query.name || '');
   const billName = req.query.billName || '';
-  const billNameFilter = billName ? { billName: { $regex: billName, $options: 'i' } } : {};
-
+  const billNameFilter = billName ? {
+    name: {
+      $regex: billName, $options: 'i'
+    }
+  } : {};
+  console.log("billName=>", billNameFilter);
   try {
     const data = await Bill.find({ ...billNameFilter }).sort({ createdAt: -1 });
     res.status(201).send(data);

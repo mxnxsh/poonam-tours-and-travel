@@ -37,7 +37,9 @@ const billSchema = new mongoose.Schema({
       type: Number,
     },
   }],
-
+  name: {
+    type: String
+  },
   totalHRS: {
     type: Number
   },
@@ -50,7 +52,9 @@ const billSchema = new mongoose.Schema({
   subTotal: {
     type: Number
   },
-
+  date: {
+    type: String
+  }
 }, {
   timestamps: true
 })

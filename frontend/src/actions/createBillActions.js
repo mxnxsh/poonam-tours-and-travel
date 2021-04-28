@@ -18,6 +18,7 @@ export const createBill = (bill) => async (dispatch) => {
 }
 
 export const fetchAllBills = ({ billName = '' }) => async (dispatch) => {
+  // console.log("actionBillname=>", billName);
   dispatch({ type: ALL_BILL_REQUEST });
   try {
     const { data } = await Axios.get(`/api/bill/all-bills?billName=${billName}`);

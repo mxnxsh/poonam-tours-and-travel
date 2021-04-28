@@ -21,7 +21,6 @@ bookingDataRouter.get('/', async (req, res) => {
     const name = req.query.name || '';
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const data = await Booking.find({ ...nameFilter }).sort({ date: -1 });
-    // console.log(data);
     res.send(data)
 });
 

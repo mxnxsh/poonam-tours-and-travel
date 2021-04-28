@@ -3,7 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useParams } from 'react-router';
 import { getBookings } from '../actions/dataEntryActions';
-import Logo from '../images/car1.jpg';
+import { fetchAllBills } from '../actions/createBillActions';
+
+import Logo from '../images/logo.jpg';
+import Truck from '../images/truck.png';
+import Car1 from '../images/car1.jpg';
+import Car2 from '../images/car2.jpg';
+import Car3 from '../images/car3.jpg';
+import Car4 from '../images/car4.jpg';
+
 import LoadingBox from '../components/LoadingBox';
 import MaterialTable from 'material-table';
 import {
@@ -52,18 +60,23 @@ const Main = props => {
     )),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
   };
+
   const [name1, setName1] = useState('');
   const [show, setShow] = useState(false);
   const bookingDetails = useSelector(state => state.bookingDetails);
   const { loading, error, entries } = bookingDetails;
   const allBills = useSelector(state => state.allBills);
   const { loading: allBillLoading, error: allBillError, bills } = allBills;
-  let { name = 'all', billName = 'bill' } = useParams();
+  let { name = 'all', billName = 'all' } = useParams();
   const dispatch = useDispatch();
-  console.log('Outsidename', name);
   const submitHandler = e => {
     e.preventDefault();
     props.history.push(`/${name1}`);
+    // dispatch(
+    //   fetchAllBills({
+    //     billName: billName !== 'all' ? billName : '',
+    //   })
+    // );
     // dispatch(
     //   getBookings({
     //     name: name !== 'all' ? name : '',
@@ -71,11 +84,18 @@ const Main = props => {
     // );
   };
   useEffect(() => {
-    dispatch(
-      getBookings({
-        name: name !== 'all' ? name : '',
-      })
-    );
+    if (name !== 'all') {
+      dispatch(
+        getBookings({
+          name: name !== 'all' ? name : '',
+        })
+      );
+      dispatch(
+        fetchAllBills({
+          billName: name !== 'all' ? name : '',
+        })
+      );
+    }
   }, [dispatch, name]);
   const hideShowHandler = () => {
     setShow(!show);
@@ -88,7 +108,7 @@ const Main = props => {
           className='row col'
           style={{ justifyContent: 'flex-end', alignItems: 'flex-end' }}
         >
-          <form onSubmit={submitHandler}>
+          <form>
             <input
               type='text'
               placeholder='Search...'
@@ -106,19 +126,21 @@ const Main = props => {
                   border: 'none',
                   color: '#f8f5f1',
                 }}
+                onClick={submitHandler}
               >
-                Entries
+                Search
               </button>
-              <button
+              {/* <button
                 style={{
                   margin: 'auto 10px',
                   backgroundColor: '#126e82',
                   border: 'none',
                   color: '#f8f5f1',
                 }}
+                onClick={submitHandler1}
               >
                 Bills
-              </button>
+              </button> */}
             </div>
           </form>
         </div>
@@ -137,46 +159,24 @@ const Main = props => {
           x
         </div>
         {/* <div style={{ display: show ? 'none' : 'block' }}> */}
-        {name === 'all' ? (
+        {(name || billName) === 'all' ? (
           <div className=' row center col' style={{ marginTop: '40px' }}>
             <img src={Logo} alt='car1' height='200' width='400' />
-            <p style={{ textAlign: 'center', width: '50%', color: 'white' }}>
+            {/* <p style={{ textAlign: 'center', width: '50%', color: 'white' }}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Quibusdam molestias fugiat, dicta voluptatum in dolorem vel rerum
               sapiente, saepe reiciendis dignissimos, dolor et non hic.
-            </p>
+            </p> */}
           </div>
-        ) : (
+        ) : entries ? (
           <>
             <div style={{ display: show ? 'none' : 'block' }}>
-              {loading ? (
-                <LoadingBox></LoadingBox>
-              ) : error ? (
-                <p>{error}</p>
-              ) : (
-                <div className='row center'>
-                  {/* <div className='card card-body'>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Vehicle Number</th>
-                          <th>From-To</th>
-                          <th>Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {entries.map(entry => (
-                          <tr key={entry._id}>
-                            <td>{entry.number}</td>
-
-                            <td>{entry.location}</td>
-
-                            <td>{entry.startDate}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div> */}
+              <div className='row center'>
+                {loading ? (
+                  <LoadingBox></LoadingBox>
+                ) : error ? (
+                  <p>{error}</p>
+                ) : (
                   <MaterialTable
                     style={{ overflow: 'scroll', height: '400px' }}
                     icons={tableIcons}
@@ -186,7 +186,7 @@ const Main = props => {
                       { title: 'Date', field: 'startDate' },
                     ]}
                     data={entries}
-                    title='All Entries'
+                    title={`Entries of ${name}`}
                     options={{
                       search: false,
                       pageSizeOptions: [3, 6, 20, 30, 50, 75, 100],
@@ -222,41 +222,170 @@ const Main = props => {
                       },
                     }}
                   />
-                </div>
-              )}
+                )}
+                {allBillLoading ? (
+                  <LoadingBox></LoadingBox>
+                ) : allBillError ? (
+                  <p>{allBillError}</p>
+                ) : (
+                  <MaterialTable
+                    style={{
+                      overflow: 'scroll',
+                      height: '400px',
+                      marginLeft: '30px',
+                    }}
+                    icons={tableIcons}
+                    columns={[
+                      { title: 'Name', field: 'name' },
+                      { title: 'Total', field: 'subTotal' },
+                      { title: 'Date', field: `date` },
+                    ]}
+                    data={bills}
+                    title={`Bill of ${name}`}
+                    options={{
+                      search: false,
+                      pageSizeOptions: [3, 6, 20, 30, 50, 75, 100],
+                      pageSize: 3,
+
+                      actionsColumnIndex: -1,
+                      headerStyle: {
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                      },
+                      actionsCellStyle: {
+                        fontSize: '3rem',
+                      },
+                      draggable: false,
+                      // paging: false,
+                    }}
+                    localization={{
+                      pagination: {
+                        labelDisplayedRows: '{from}-{to} of {count}',
+                      },
+                      toolbar: {
+                        nRowsSelected: '{1} row(s) selected',
+                        addRemoveColumns: 'remove',
+                      },
+                      header: {
+                        actions: 'Actions',
+                      },
+                      body: {
+                        emptyDataSourceMessage: 'No records to display',
+                        filterRow: {
+                          filterTooltip: 'Filter',
+                        },
+                      },
+                    }}
+                  />
+                )}
+              </div>
             </div>
           </>
+        ) : bills ? (
+          `Hello ${billName}`
+        ) : (
+          'No data found'
         )}
         {/* </div> */}
       </div>
       <div className='row' style={{ margin: '50px' }}>
         <div className='row center col'>
-          <img src={Logo} alt='car1' height='200' width='200' />
-          <p>Lorem ipsum dolor sit amet, </p>
+          <img src={Truck} alt='car1' height='200' width='200' />
+          {/* <p>Lorem ipsum dolor sit amet, </p> */}
         </div>
         <div className='row center col'>
-          <img src={Logo} alt='car1' height='200' width='200' />
-          <p>Lorem ipsum dolor sit amet, </p>
+          <img src={Car1} alt='car1' height='200' width='200' />
+          {/* <p>Lorem ipsum dolor sit amet, </p> */}
         </div>
         <div className='row center col'>
-          <img src={Logo} alt='car1' height='200' width='200' />
-          <p>Lorem ipsum dolor sit amet, </p>
+          <img src={Car2} alt='car2' height='200' width='200' />
+          {/* <p>Lorem ipsum dolor sit amet, </p> */}
         </div>
         <div className='row center col'>
-          <img src={Logo} alt='car1' height='200' width='200' />
-          <p>Lorem ipsum dolor sit amet, </p>
+          <img src={Car3} alt='car3' height='200' width='200' />
+          {/* <p>Lorem ipsum dolor sit amet, </p> */}
         </div>
         <div className='row center col'>
-          <img src={Logo} alt='car1' height='200' width='200' />
-          <p>Lorem ipsum dolor sit amet, </p>
+          <img src={Car4} alt='car4' height='200' width='200' />
+          {/* <p>Lorem ipsum dolor sit amet, </p> */}
         </div>
       </div>
 
       <div className='aboutus flex-center'>
         <h1 className='row center'>ABOUT US</h1>
         <div className='row center'>
-          <div className='div1'>1</div>
-          <div className='div2'>2</div>
+          <div className='div1'>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Our Company focuses on providing major transportation services
+              with quality and security.
+            </div>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              We have been working since 30 plus years in Transportation.
+            </div>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Our company have served various clients from Bollywood to
+              Hollywood.We ensure to serve with best hospitality staff to our
+              customers.
+            </div>
+          </div>
+          <div className='div2'>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Address: 349, Adarsh Nagar, New Link Road, Andheri West, Mumbai
+              400102
+            </div>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Contact Number: 9820642909 (Sopan Khule) 9004369773 (Nilkanth
+              Khule)
+            </div>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Email: poonamtransports1@gmail.com
+            </div>
+            <div
+              style={{
+                paddingBottom: '20px',
+                lineHeight: '25px',
+                wordSpacing: '2px',
+              }}
+            >
+              Email: sopankhule48@gmail.com
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -6,10 +6,10 @@ import { getCompanyDetails, getvehicleDetails } from '../actions/adminActions';
 import { bookingData, getBookings } from '../actions/dataEntryActions';
 
 const AdminScreen = () => {
-  const { name = 'all' } = useParams();
+  const { name1 = 'all' } = useParams();
 
   // const [modalVisible, setModalVisible] = useState(false);
-  const [name1, setName1] = useState('');
+  const [name, setName] = useState('');
   // const [ownerName, setOwnerName] = useState();
   const [number, setNumber] = useState('');
   const [location, setLocation] = useState('');
@@ -48,10 +48,10 @@ const AdminScreen = () => {
     dispatch(getCompanyDetails());
     dispatch(
       getBookings({
-        name: name !== 'all' ? name : '',
+        name1: name1 !== 'all' ? name1 : '',
       })
     );
-  }, [dispatch, name]);
+  }, [dispatch, name1]);
 
   const handleClick = e => {
     e.preventDefault();
@@ -61,7 +61,7 @@ const AdminScreen = () => {
 
   const handleCustomerClick = e => {
     e.preventDefault();
-    setName1(customerInput);
+    setName(customerInput);
     setCustomerInput('');
   };
   const handleSubmit = e => {
@@ -85,7 +85,7 @@ const AdminScreen = () => {
         // endDate,
       })
     );
-    setName1('');
+    setName('');
     // setOwnerName('')
     setNumber('');
     setLocation('');
@@ -96,10 +96,9 @@ const AdminScreen = () => {
     setShow('');
     setBook('');
     setStartDate(
-      new Date().getMonth() +
-        1 +
+      new Date().getDate() +
         '/' +
-        new Date().getDate() +
+        (new Date().getMonth() + 1) +
         '/' +
         new Date().getFullYear()
     );
@@ -180,9 +179,9 @@ const AdminScreen = () => {
           <div>
             <label>Company Name</label>
             <select
-              value={name1}
+              value={name}
               onChange={e => {
-                setName1(e.target.value);
+                setName(e.target.value);
               }}
             >
               <option hidden defaultValue>

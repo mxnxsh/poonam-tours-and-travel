@@ -59,13 +59,22 @@ const BillScreen = props => {
   const { billItems } = bill;
 
   const toPrice = num => Number(Math.round(num));
-
   bill.totalKMS = toPrice(
     billItems.reduce(
       (accumulator, currentValue) => accumulator + currentValue.extraKMS * 14,
       0
     )
   );
+  bill.date =
+    bill.billItems.length === 0
+      ? ''
+      : new Date().getDate() +
+        '/' +
+        (new Date().getMonth() + 1) +
+        '/' +
+        new Date().getFullYear();
+  bill.name = bill.billItems.length === 0 ? '' : bill.billItems[0].name;
+
   bill.totalHRS = toPrice(
     billItems.reduce(
       (accumulator, currentValue) => accumulator + currentValue.extraHRS * 100,

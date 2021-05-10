@@ -15,4 +15,4 @@ function Bill() {
     </div>
   );
 }
-export default Bill
+export default Bill;

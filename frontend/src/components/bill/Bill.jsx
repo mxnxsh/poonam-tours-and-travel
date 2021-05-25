@@ -15,6 +15,7 @@ const Bill = ({ bill }) => (
       {/* <Text style={styles.invoice} fixed>
         INVOICE
       </Text> */}
+      {/* something */}
       <Text style={styles.header} fixed>
         POONAM TOURS & TRAVEL
       </Text>
